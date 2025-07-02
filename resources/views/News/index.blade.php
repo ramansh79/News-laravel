@@ -1,10 +1,10 @@
-@extends('layout.header')
+@extends('Layout.header')
 @section('news')
-    {{-- <br>welcome{{Auth::User()->name}}<br> --}}
+    <br>Welcome {{Auth::User()->user_name}}</br> 
     <ul>
-        @foreach($news as $pots )
+        @foreach($news as $pots)
             <li>
-                <a href="{{route('news.show',$pots->id)}}">{{$pots->news_title}}</a>
+                <a href="{{route('news.show',$pots->unique_news_id)}}">{{$pots->news_title}}</a>
             </li>
         @endforeach
     </ul>

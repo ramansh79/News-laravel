@@ -21,6 +21,12 @@ class News extends Model
     public function comment(){
         return $this->belongsToMany(Comment::class,'news_comments','unique_news_id','comment_id');
     }
+    public $directory = "/images/";
+    public function newImage():Attribute{
+        return Attribute::make(
+            get:fn(string $value)=>directory .$value
+        );
+    }
     
     
 }

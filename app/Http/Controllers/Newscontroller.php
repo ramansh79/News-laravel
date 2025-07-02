@@ -34,7 +34,7 @@ class Newscontroller extends Controller
 
             $name= $file->getClientOriginalName();
             $file->move('images',$name);
-            $input['file']=$name;
+            $input['new_image']=$name;
         }
         News::create($input);
 

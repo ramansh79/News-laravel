@@ -84,10 +84,10 @@ Route::get('insert3',function(){
 
 Route::resource('/news','\App\Http\Controllers\Newscontroller');
 
-Route::view('/samplepage/register','Ucon.register')->name('register');
+Route::view('/newslaravel/register','Ucon.register')->name('register');
 Route::post('registers',[Ucontroller::class,'registerSave'])->name('registersave');
 
-Route::view('/login','Ucon.login')->name('login');
+Route::view('/newslaravel/login','Ucon.login')->name('login');
 Route::post('loginmatch',[Ucontroller::class,'loginmatch'])->name('loginmatch');
 
 // Route::get('/index',[Newscontroller::class,'index'])->name('news');
