@@ -1,6 +1,6 @@
 @extends('Layout.header')
 @section('news')
-    <br>Welcome {{Auth::User()->user_name}}</br> 
+    <h2>Welcome {{Auth::User()->user_name}}</h2> 
     <ul>
         @foreach($news as $pots)
             <li>
