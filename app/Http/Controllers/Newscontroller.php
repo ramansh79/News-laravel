@@ -56,7 +56,7 @@ class Newscontroller extends Controller
     public function edit(string $id)
     {
         $pot = News::findorfail($id);
-        return view('News.edit',compact($pot));
+        return view('News.edit',compact('pot'));
     }
 
     /**

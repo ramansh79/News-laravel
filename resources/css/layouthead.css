@@ -16,7 +16,10 @@ h1 {
     background-color: #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
-
+h6 {
+    text-align: end;
+    padding-right: 5px;
+}
 /* Navigation Styling */
 .navbar {
     border-bottom: 1px solid #dee2e6;
@@ -57,10 +60,14 @@ h1 {
 
 /* Containers */
 .topcontainer {
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     background-color: #ffffff;
-    padding-bottom: 10px;
+   
     border-bottom: 1px solid #dee2e6;
+}
+
+.me-auto{
+    margin-left: auto !important;
 }
 
 .midcontainer {

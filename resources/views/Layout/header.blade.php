@@ -12,26 +12,10 @@
     
 </head>
 <body>
-    <style>
-        h1{
-            margin-block-start: 0;
-            margin-block-end:0;
-            height:60px;
-        }
-    </style>
-    <div class="topcontainer">
-        <h1>Sample Page</h1>
-        <table class="head_class">
-            <tr>
-                
-                <td><a href="{{route('news.index')}}">News</a></td>  
-       
-            </tr>
-            
-        </table>
+        <div class="topcontainer">
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar</a>
+                <a class="navbar-brand" href="#">Newslaravel</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -41,7 +25,7 @@
                             <a class="nav-link active" aria-current="page" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
+                            <a class="nav-link" href="{{route('news.index')}}">News</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -65,12 +49,16 @@
                 </div>
             </div>
         </nav>
+      
+
     </div>
+    <h6>Welcome : {{Auth::User()->user_name}}</h6> 
 
     <div class="midcontainer">
         @yield('news')
         @yield('main')
         @yield('create')
+        @yield('update')
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>

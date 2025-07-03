@@ -4,15 +4,57 @@
     <form action="/news" method="POST" enctype="multipart/form-data">
 
         {{ csrf_field() }}
-        <input type="integer" name="category_id" placeholder="enter category id"><br>
-        <input type="text" name="news_title" placeholder="title"><br>
-        <input type="text" name="news_short_description" placeholder="short text"><br>
-        <input type="text" name="news_long_description" placeholder="long text"><br>
-        <input type="file" name="new_image" value="image"><br>
-        <input type="integer" name="news_status" placeholder="0 or 1"><br>
-        <input type="number" name="views_count" placeholder="total number of views"><br>
-        <input type="text" name="author_name" placeholder="name of author"><br>
-        <input type="submit" value="create">
+        
 
+
+
+        <form class="row g-3">
+            <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">category_id</label>
+                <input type="integer" class="form-control" name="category_id" id="inputEmail4">
+            </div>
+            <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">Title of News</label>
+                <input type="text" class="form-control" name="news_title" id="inputEmail4">
+            </div>
+            <div class="col-12">
+                <label for="inputLDescription" class="form-label">News Long Description</label>
+                <input type="textbox" class="form-control" id="inputLDescription" name="news_long_description" placeholder="Specs">
+            </div>
+            <div class="col-12">
+                <label for="inputSDescription" class="form-label">News Short Description</label>
+                <input type="text" class="form-control" id="inputSDescription" name="news_short_description" placeholder="size of phone">
+            </div>
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Insert image</label>
+                <input class="form-control" name="new_image" type="file" id="formFile">
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="news_status" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    Released
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="news_status" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Unreleased
+                </label>
+            </div>
+             <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">Views count</label>
+                <input type="text" class="form-control" name="views_count" id="inputEmail4">
+            </div>       
+             <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">Author Name</label>
+                <input type="text" class="form-control" name="author_name" id="inputEmail4">
+            </div>
+            
+            
+           
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Create</button>
+            </div>
+        </form>
     </form>
 @endsection
