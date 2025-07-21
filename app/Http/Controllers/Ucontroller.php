@@ -37,7 +37,7 @@ class Ucontroller extends Controller
             'password'=>'required|min:3'
         ]);
         if(Auth::attempt($user)){
-                return view('Home.main');
+                return redirect()->route('homemain');
         }else{
                 return redirect()->route('login');
         }

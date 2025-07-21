@@ -19,7 +19,7 @@
             </div>
             <div class="col-12">
                 <label for="inputLDescription" class="form-label">News Long Description</label>
-                <input type="textbox" class="form-control" id="inputLDescription" name="news_long_description" placeholder="Specs">
+                <textarea class="form-control" id="inputLDescription" name="news_long_description" placeholder="Specs"></textarea>
             </div>
             <div class="col-12">
                 <label for="inputSDescription" class="form-label">News Short Description</label>
