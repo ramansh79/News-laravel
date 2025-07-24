@@ -12,7 +12,7 @@
     
 </head>
 <body>
-        <div class="topcontainer">
+    <div class="topcontainer">
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Newslaravel</a>
@@ -21,6 +21,10 @@
                 </button>
               
             </div>
+            <div class="d-flex">
+                <a href="{{route('login')}}" class=" btn btn-primary">login</a>
+                <a href="{{route('register')}}" class="btn btn-primary">register</a>
+            </div>
         </nav>
       
 
@@ -28,9 +32,8 @@
 
 
     <div class="midcontainer">
-    @yield('Rbody')    
-    @yield('Lbody')
     
+    @yield('Gbody')
         
 
     </div>

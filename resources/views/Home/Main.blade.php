@@ -2,11 +2,11 @@
 @section('main')
 
     <!-- top section -->
-    <section class="bg-light text-dark p-5 p-lg-4 pt-5 text-center test-sm-start">
+    <section class="bg-dark text-light p-5 p-lg-4 pt-5 text-center test-sm-start">
             <div class="container">
                 <div class="d-sm-flex align-item-center justify-content-between">
                 <div>
-                    <h1>Get all the news becoming a <span class="text-warning">Member</span> </h1>
+                    <h1 class="bg-dark">Get all the news becoming a <span class="text-warning">Member</span> </h1>
                     <p class="lead my-4" >
                         We focus on providing lettest and greatest updates and upgrades to the recent available mobile devices,
                         so that you can get the lettest news.
@@ -15,10 +15,10 @@
                         class="btn btn-primary btn-lg" 
                         data-bs-toggle="modal" 
                         data-bs-target="#enroll">
-                        Get Engaged 
+                        About Us
                     </button>
                 </div>
-                <img class="img-fluid w-50 d-none d-sm-block" src="/images/Lr-6390.jpg" height="20px" alt="" >
+                <img class="img-fluid w-50 d-none d-sm-block " src="/images/egadget.png" height="20px" alt="" >
             </div>
             </div>
     </section>

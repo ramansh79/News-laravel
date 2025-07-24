@@ -47,13 +47,15 @@
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Search</button>
                     </form>
+                    <a href="{{route('logout')}}">Logout</a>
+
                 </div>
             </div>
         </nav>
       
 
     </div>
-    <h6>Welcome : {{Auth::User()->user_name}}</h6> 
+    <h6>Hi : {{Auth::User()->userName}}</h6> 
 
     <div >
         @yield('news')

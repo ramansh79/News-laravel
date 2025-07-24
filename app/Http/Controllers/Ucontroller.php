@@ -42,6 +42,18 @@ class Ucontroller extends Controller
                 return redirect()->route('login');
         }
     }
+    public function homeMain(){
+        if(Auth::check()){
+            return view('Home.main');
+        }else{
+            return redirect()->route('guestPage');
+        }
+    }
+   
+    public function logout(){
+        Auth::logout();
+        return redirect()->route('homemain');
+    }
 
 }
     // public function dashboard(Request $request){

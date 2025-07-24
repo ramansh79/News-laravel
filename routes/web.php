@@ -90,8 +90,13 @@ Route::post('registers',[Ucontroller::class,'registerSave'])->name('registersave
 Route::view('/newslaravel/login','Ucon.login')->name('login');
 Route::post('loginmatch',[Ucontroller::class,'loginmatch'])->name('loginmatch');
 
-Route::view('/newslaravel/home','Home.Main')->name('homemain');
+Route::get('/newslaravel/home',[Ucontroller::class,'homeMain'])->name('homemain');
 
 // Route::get('/index',[Newscontroller::class,'index'])->name('news');
+
+Route::view('/newslaravel','Ucon.guest')->name('guestPage');
+
+Route::get('logout',[Ucontroller::class,'logout'])->name('logout');
+
 
 Route::view('/dd','Home.dd');
