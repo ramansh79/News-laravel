@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Http\Controllers\Ucontroller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Newscontroller;
+use App\Http\Middleware\Validu1;
 
 
 Route::get('/', function () {
@@ -82,7 +83,7 @@ Route::get('insert3',function(){
 
 
 
-Route::resource('/news','\App\Http\Controllers\Newscontroller');
+Route::resource('newslaravel/news','\App\Http\Controllers\Newscontroller');
 
 Route::view('/newslaravel/register','Ucon.register')->name('register');
 Route::post('registers',[Ucontroller::class,'registerSave'])->name('registersave');
@@ -90,12 +91,14 @@ Route::post('registers',[Ucontroller::class,'registerSave'])->name('registersave
 Route::view('/newslaravel/login','Ucon.login')->name('login');
 Route::post('loginmatch',[Ucontroller::class,'loginmatch'])->name('loginmatch');
 
-Route::get('/newslaravel/home',[Ucontroller::class,'homeMain'])->name('homemain');
+Route::get('/newslaravel/home',[Ucontroller::class,'homeMain'])
+    ->name('homemain')
+    ->middleware('IsValid1:admin');
 
 // Route::get('/index',[Newscontroller::class,'index'])->name('news');
 
 Route::view('/newslaravel','Ucon.guest')->name('guestPage');
-
+Route::resource('newslaravel/admin','\App\Http\Controllers\Admincontroller');
 Route::get('logout',[Ucontroller::class,'logout'])->name('logout');
 
 

@@ -42,17 +42,29 @@ class Ucontroller extends Controller
                 return redirect()->route('login');
         }
     }
+
+
+    // public function homeMain(){
+    //     if(Auth::check()){
+    //         return view('Home.main');
+    //     }else{
+    //         return redirect()->route('guestPage');
+    //     }
+    // }
+
+    //---------above is the controller to route to the home page or guest page with auth check, 
+    // ----------------below auth is in middleware---------//
+
+
     public function homeMain(){
-        if(Auth::check()){
-            return view('Home.main');
-        }else{
-            return redirect()->route('guestPage');
-        }
+        
+        return view('Home.main');
+           
     }
    
     public function logout(){
         Auth::logout();
-        return redirect()->route('homemain');
+        return redirect()->route('homeMain');
     }
 
 }

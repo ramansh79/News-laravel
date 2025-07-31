@@ -28,9 +28,8 @@
 
 
     <div class="midcontainer">
-    @yield('Rbody')    
-    @yield('Lbody')
     
+    @yield('admin')
     
         
 
