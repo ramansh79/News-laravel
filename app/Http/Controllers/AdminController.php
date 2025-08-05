@@ -29,7 +29,15 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input=$request->all();
+        if($file= $request->file('new_image')){
+            
+            $name=$file->getClientOriginalName();
+            $file->move('images',$name);
+            $input['new_image']=$name;
+        }
+        News::create($input);
+        return redirect('/newslaravel/admin');
     }
 
     /**
@@ -45,7 +53,8 @@ class AdminController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $pot = News::findorfail($id);
+        return view('Admin.edit',compact('pot'));
     }
 
     /**
@@ -53,7 +62,17 @@ class AdminController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $input = $request->all();
+        if($file = $request->file('new_image')){
+
+            $name = $file->getClientOriginalName();
+            $file->move('images',$name);
+            $input['new_image']=$name;
+
+        }
+        $final = News::findorfail($id);
+        $final->update($input);
+        return redirect('/newslaravel/admin');
     }
 
     /**

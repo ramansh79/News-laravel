@@ -1,6 +1,6 @@
 @extends('Layout.admin')
-@section('admin')
-
+@section('edit')
+    
     <section class="bg-light text-dark p-8">
         <div class="container">
             <div class="align-item-center">
@@ -16,7 +16,7 @@
                     </li>
                     
                 </ul>
-                <div class="tab-content" id="pills-tabContent">
+                <div class="tab-content " id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
                         <nav>
                             <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -31,32 +31,38 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                        <th scope="col">unique_news_id</th>
-                                        <th scope="col">category_id</th>
-                                        <th scope="col">news_title</th>
-                                        <th scope="col">news_short_description</th>
-                                        <th scope="col">news_long_description</th>
-                                        <th scope="col">new_image</th>
-                                        <th scope="col">news_status</th>
-                                        <th scope="col">views_count</th>
-                                        <th scope="col">author_name</th>
+                                            <th scope="col">unique_news_id</th>
+                                            <th scope="col">category_id</th>
+                                            <th scope="col">news_title</th>
+                                            <th scope="col">news_short_description</th>
+                                            <th scope="col">news_long_description</th>
+                                            <th scope="col">new_image</th>
+                                            <th scope="col">news_status</th>
+                                            <th scope="col">views_count</th>
+                                            <th scope="col">author_name</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($news as $items)
-                                            <tr>
-                                                <th scope="row">{{$items->unique_news_id}}</th>
-                                                <td>{{$items->category_id}}</td>
-                                                <td>{{$items->news_title}}</td>
-                                                <td>{{$items->news_short_description}}</td>
-                                                <td>{{$items->news_long_description}}</td>
-                                                <td>{{$items->new_image}}</td>
-                                                <td>{{$items->news_status}}</td>
-                                                <td>{{$items->views_count}}</td>
-                                                <td>{{$items->author_name}}</td>
-                                                <td><a class="btn btn-secondary" href="admin/{{$items->unique_news_id}}/edit">Edit</a></td>
-                                            </tr>
-                                        @endforeach
+                                        <tr>
+                                            <form action="/newslaravel/admin/{{$pot->unique_news_id}}" method="post" enctype="multipart/form-data">
+                                                
+                                                {{csrf_field()}}
+                                                <th scope="row">{{$pot->unique_news_id}}</th>
+                                                <input type="hidden" name="_method" value="PUT">
+                                                <td><input type="integer" name="category_id" value="{{$pot->category_id}}"></td>    
+                                                <td><input type="text" name="news_title" value="{{$pot->news_title}}"></td>
+                                                <td><input type="text" name="news_short_discription" value="{{$pot->news_short_description}}"></td>
+                                                <td><input type="text" name="news_long_discription" value="{{$pot->news_long_description}}"></td>
+                                                <td><input type="file" name="new_image" value="image" value="{{$pot->new_image}}"></td>
+                                                <td><input type="integer" name="news_status"value="{{$pot->news_status}}"></td>
+                                                <td><input type="number" name="views_count" value="{{$pot->views_count}}"></td>
+                                                <td><input type="text" name="author_name" value="{{$pot->author_name}}"></td>
+                                                <td><input type="submit" value="update"></td>
+                                                <td><a href="/newslaravel/admin" class="btn">Cancel</a></td>
+                                            </form>
+                                            
+
+                                        </tr>
                                     </tbody>
                                 </table>
                             
@@ -81,14 +87,4 @@
         </div>
     </section>
 
-
-
-
-
-
-
-
-
 @endsection
-
-

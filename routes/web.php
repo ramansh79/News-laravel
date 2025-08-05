@@ -98,7 +98,7 @@ Route::get('/newslaravel/home',[Ucontroller::class,'homeMain'])
 // Route::get('/index',[Newscontroller::class,'index'])->name('news');
 
 Route::view('/newslaravel','Ucon.guest')->name('guestPage');
-Route::resource('newslaravel/admin','\App\Http\Controllers\Admincontroller');
+Route::resource('/newslaravel/admin','\App\Http\Controllers\Admincontroller');
 Route::get('logout',[Ucontroller::class,'logout'])->name('logout');
 
 

@@ -1,7 +1,7 @@
 @extends('Layout.header')
 @section('update')
 
-<form action="/news/{{$pot->unique_news_id}}" method="POST" enctype="multipart/form-data">
+<form action="/newslaravel/news/{{$pot->unique_news_id}}" method="POST" enctype="multipart/form-data">
 
     {{ csrf_field() }}
     <input type="hidden" name="_method" value="PUT">

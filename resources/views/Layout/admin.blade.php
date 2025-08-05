@@ -30,6 +30,7 @@
     <div class="midcontainer">
     
     @yield('admin')
+    @yield('edit')
     
         
 

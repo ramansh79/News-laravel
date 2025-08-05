@@ -39,6 +39,7 @@
                                 <input type="submit" value="edit">
                             </form>
                         </td>
+                
                 </tr>
 
             @endforeach
