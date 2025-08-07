@@ -37,6 +37,7 @@ class AdminController extends Controller
             $input['new_image']=$name;
         }
         News::create($input);
+        
         return redirect('/newslaravel/admin');
     }
 

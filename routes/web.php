@@ -82,8 +82,14 @@ Route::get('insert3',function(){
 
 
 
+// News controller routes
 
 Route::resource('newslaravel/news','\App\Http\Controllers\Newscontroller');
+Route::get('newslaravel/news/smartphones',[Newscontroller::class,'pindex'])->name('news.pindex');
+
+
+
+// User controller routes
 
 Route::view('/newslaravel/register','Ucon.register')->name('register');
 Route::post('registers',[Ucontroller::class,'registerSave'])->name('registersave');
@@ -98,8 +104,12 @@ Route::get('/newslaravel/home',[Ucontroller::class,'homeMain'])
 // Route::get('/index',[Newscontroller::class,'index'])->name('news');
 
 Route::view('/newslaravel','Ucon.guest')->name('guestPage');
-Route::resource('/newslaravel/admin','\App\Http\Controllers\Admincontroller');
 Route::get('logout',[Ucontroller::class,'logout'])->name('logout');
+
+
+// Admin controller routes
+
+Route::resource('/newslaravel/admin','\App\Http\Controllers\Admincontroller');
 
 
 Route::view('/dd','Home.dd');

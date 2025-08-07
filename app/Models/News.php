@@ -24,7 +24,7 @@ class News extends Model
     public $directory = "/images/";
     public function newImage():Attribute{
         return Attribute::make(
-            get:fn(string $value)=>directory .$value
+            get:fn(string $value)=> $value ? asset($this->directory .$value) :null
         );
     }
     

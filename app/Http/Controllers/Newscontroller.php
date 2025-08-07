@@ -15,6 +15,18 @@ class Newscontroller extends Controller
         $news = News::all();
         return view('News.index',compact('news'));
     }
+    public function pindex()
+    {
+        // $news = News::where('author_name', 'raman shrestha')->get();
+        $news = News::all();
+        return view('News.index', compact('news'));
+    }
+
+
+
+
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -76,4 +88,6 @@ class Newscontroller extends Controller
     {
         //
     }
+
+    
 }

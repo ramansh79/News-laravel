@@ -64,7 +64,7 @@ class Ucontroller extends Controller
    
     public function logout(){
         Auth::logout();
-        return redirect()->route('homeMain');
+        return redirect()->route('homemain');
     }
 
 }
