@@ -86,6 +86,7 @@ Route::get('insert3',function(){
 
 Route::resource('newslaravel/news','\App\Http\Controllers\Newscontroller');
 Route::get('newslaravel/news/smartphones',[Newscontroller::class,'pindex'])->name('news.pindex');
+Route::get('newslaravel/news',[Newscontroller::class,'cshow'])->name('news.cshow');
 
 
 

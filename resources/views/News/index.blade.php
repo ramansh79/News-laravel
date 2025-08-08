@@ -27,10 +27,14 @@
                 <tr>
                     <th scope="row">{{$post->unique_news_id}}</th>
                         <td>{{$post->category_id}}</td>
-                        <td>{{$post->news_title}}</td>
+                        <td><a href="{{route('news.show',$post->unique_news_id)}}">{{$post->news_title}}</a></td>
                         <td>{{$post->news_short_description}}</td>
                         <td>{{$post->news_long_description}}</td>
-                        <td>{{$post->new_image}}</td>
+                        <td class="text-center">
+                            <img class="img-fluid w-25" src="{{asset('images/'.$post->new_image)}}" alt="">    
+                        
+                        
+                        </td>
                         <td>{{$post->news_status}}</td>
                         <td>{{$post->views_count}}</td>
                         <td>{{$post->author_name}}</td>

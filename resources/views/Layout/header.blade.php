@@ -54,7 +54,7 @@
     </div>
     <h6>Hi : {{Auth::User()->user_name}}</h6> 
 
-    <div >
+    <div>
         @yield('news')
         @yield('main')
         @yield('create')

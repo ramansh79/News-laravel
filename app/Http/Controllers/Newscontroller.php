@@ -19,13 +19,8 @@ class Newscontroller extends Controller
     {
         // $news = News::where('author_name', 'raman shrestha')->get();
         $news = News::all();
-        return view('News.index', compact('news'));
+        return view('Admin.index',compact('news'));
     }
-
-
-
-
-
 
 
     /**
@@ -61,6 +56,12 @@ class Newscontroller extends Controller
         $pot = News::findorfail($id);
         return view('News.show',compact('pot'));
     }
+    public function cshow(string $id, Request $request){
+        $pot = News::findorfail($id);
+        $pot->comment()->attach($request->comments);
+    }
+
+
 
     /**
      * Show the form for editing the specified resource.
