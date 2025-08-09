@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\News;
+use App\Models\Comment;
 
 class Newscontroller extends Controller
 {
@@ -51,18 +52,21 @@ class Newscontroller extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $id, Request $request)
     {
         $pot = News::findorfail($id);
+        $comments = $pot->comment;
+        // if($request->comments){
+        //     $comment = $request->validate([
+        //         'comments' => 'required|string|max:255',
+        //     ]);
+        //     Comment::create($comment);
+
+        //     $pot->comment()->attach($comment);
+        // }
         return view('News.show',compact('pot'));
+               
     }
-    public function cshow(string $id, Request $request){
-        $pot = News::findorfail($id);
-        $pot->comment()->attach($request->comments);
-    }
-
-
-
     /**
      * Show the form for editing the specified resource.
      */

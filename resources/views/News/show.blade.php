@@ -55,8 +55,8 @@
                                 <tr>
                                     <th scope="col">Add Comment</th>
                                     <td>
-                                        <form action="{{route('news.cshow',$pot->unique_news_id)}}" method="POST">
-                                            @csrf_field()
+                                        <form action="{{route('news.show',$pot->unique_news_id)}}" >
+                                            {{@csrf_field()}}
                                             <input type="text" name="comments" placeholder="Add your comment here" class="form-control">
                                             <input type="submit" value="Add Comment" class="btn btn-primary mt-2">
                                         </form>
@@ -80,7 +80,7 @@
                                         <div class="col">
                                             <div class="d-flex flex-start">
                                             <img class="rounded-circle shadow-1-strong me-3"
-                                                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(10).webp" alt="avatar" width="65"
+                                                src="{{asset('images/'.$pot->user_image)}}" alt="avatar" width="65"
                                                 height="65" />
                                             <div class="flex-grow-1 flex-shrink-1">
                                                 <div>

@@ -27,6 +27,7 @@ class User extends Authenticatable
         'user_first_name',
         'user_last_name',
         'user_role',
+        'user_image', // This must be present to allow image uploads
     ];
 
     /**

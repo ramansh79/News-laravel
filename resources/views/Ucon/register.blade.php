@@ -1,6 +1,6 @@
 @extends('Layout.login')
 @section('Rbody')
-    <form action="{{route('registersave')}}" method="POST" class="row g-3">
+    <form action="{{route('registersave')}}" method="POST" class="row g-3" enctype="multipart/form-data">
         @csrf
         
         <div class="col-md-6">
@@ -34,7 +34,13 @@
                 <option>Male</option>
                 <option>Female</option>
             </select>
-        </div><br>
+        </div>
+        <div class="col-md-4">
+            <label for="formFile" class="form-label">Insert Image</label>
+            <input type="file" name="user_image" class="form-control" value="input image" >
+        </div>
+        
+        <br>
 
         <input class ="btn btn-primary btn-sec " type="submit"  value="Create">
         <a href="{{route('login')}}" class ="btn btn-primary btn-sec">Login</a>
