@@ -49,13 +49,33 @@ class Newscontroller extends Controller
         return redirect('/news');
     }
 
+    /* for comment */
+
+
+    public function cStore(Request $request, string $id){
+        $news = News::findorfail($id);
+        $comment = $request->validate([
+            'comments' => 'required|string|max:255',
+        ]);
+        $news->comment()->create([
+            'comment_user_name' => auth()->user()->user_name,
+            'comment_user_image' => 'rara',
+            'comments' => $comment['comments'],
+            'user_unique_id' =>(int) auth()->user()->unique_user_id,
+        ]);
+        // dd(auth()->user()->unique_user_id);
+        return redirect()->route('news.show', $id);
+    }
+
     /**
      * Display the specified resource.
      */
     public function show(string $id, Request $request)
     {
-        $pot = News::findorfail($id);
-        $comments = $pot->comment;
+        $news = News::findorfail($id);
+        $comments = $news->comment;
+
+
         // if($request->comments){
         //     $comment = $request->validate([
         //         'comments' => 'required|string|max:255',
@@ -64,7 +84,7 @@ class Newscontroller extends Controller
 
         //     $pot->comment()->attach($comment);
         // }
-        return view('News.show',compact('pot'));
+        return view('News.show',compact('news', 'comments'));
                
     }
     /**

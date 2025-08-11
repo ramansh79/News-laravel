@@ -25,19 +25,34 @@
                         <!-- <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="{{route('homemain')}}">Home</a>
                         </li> -->
-                        
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="{{route('news.index')}}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link" href="{{route('news.index')}}" role="button"  aria-expanded="false">
                             News
                             </a>
-                            <ul class="dropdown-menu">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Categories
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="">Smartphones</a>
+                            <a class="dropdown-item" href="#">Laptops</a>
+                            <a class="dropdown-item" href="#">Watches</a>
+                            </div>
+                        </li>
+
+
+
+
+
+                        <!-- <li class="nav-item dropdown">
+                           
+                            <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="{{route('news.pindex')}}">Smartphones</a></li>
                                 <li><a class="dropdown-item" href="#">Laptop</a></li>
                                 <li><a class="dropdown-item" href="#">Watch</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
-                        </li>
+                        </li> -->
                        
                     </ul>
                     <form class="d-flex" role="search">
@@ -50,9 +65,9 @@
             </div>
         </nav>
       
+        <h6>Hi : {{Auth::User()->user_name}}</h6> 
 
     </div>
-    <h6>Hi : {{Auth::User()->user_name}}</h6> 
 
     <div>
         @yield('news')

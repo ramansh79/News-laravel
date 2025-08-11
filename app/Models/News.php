@@ -22,11 +22,11 @@ class News extends Model
         return $this->belongsToMany(Comment::class,'news_comments','unique_news_id','comment_id');
     }
     public $directory = "images/";
-    public function newImage():Attribute{
-        return Attribute::make(
-            get:fn(string $value)=> $value ? asset($this->directory .$value) :null
-        );
-    }
+    // public function newImage():Attribute{
+    //     return Attribute::make(
+    //         get:fn(string $value)=> $value ? asset($this->directory .$value) :null
+    //     );
+    // }
     
     
 }

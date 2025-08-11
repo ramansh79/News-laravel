@@ -4,8 +4,8 @@
     <!-- top section -->
     <section class="bg-dark text-light p-5 pt-5 p-lg-0  text-center test-sm-start">
             <div class="container">
-                <div class="d-sm-flex align-item-center justify-content-between">
-                    <div class="align-item-center">
+                <div class="d-sm-flex align-item-center ">
+                    <div class="align-item-center mt-5">
                         <h1 class="bg-dark">Get all the news becoming a <span class="text-warning">Member</span> </h1>
                         <p class="lead my-4" >
                             We focus on providing lettest and greatest updates and upgrades to the recent available mobile devices,
