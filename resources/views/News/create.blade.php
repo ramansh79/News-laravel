@@ -5,9 +5,6 @@
 
         {{ csrf_field() }}
         
-
-
-
         <form class="row g-3">
             <div class="col-md-6">
                 <label for="inputEmail4" class="form-label">category_id</label>

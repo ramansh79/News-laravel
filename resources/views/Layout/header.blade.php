@@ -16,7 +16,7 @@
         <div class="topcontainer">
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{{route('homemain')}}">Newslaravel</a>
+                <a class="navbar-brand text-primary" href="{{route('homemain')}}">Newslaravel</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -33,7 +33,7 @@
                             Categories
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="">Smartphones</a>
+                            <a class="dropdown-item" href="{{route('news.pindex')}}">Smartphones</a>
                             <a class="dropdown-item" href="#">Laptops</a>
                             <a class="dropdown-item" href="#">Watches</a>
                             </div>
@@ -59,13 +59,14 @@
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Search</button>
                     </form>
-                    <a href="{{route('logout')}}">Logout</a>
+                    <a class="ms-3" href="{{route('logout')}}">Logout</a>
 
                 </div>
             </div>
         </nav>
-      
-        <h6>Hi : {{Auth::User()->user_name}}</h6> 
+        <div class="text-end ">
+            <h6 class="mb-0">Hello! {{Auth::User()->user_name}}</h6> 
+        </div>
 
     </div>
 

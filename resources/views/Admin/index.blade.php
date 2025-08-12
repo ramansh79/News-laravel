@@ -50,7 +50,7 @@
                                                 <td>{{$items->news_title}}</td>
                                                 <td>{{$items->news_short_description}}</td>
                                                 <td>{{$items->news_long_description}}</td>
-                                                <td><img src="{{$items->new_image}}"  alt="image" width="50px"></td>
+                                                <td><img src="{{asset('/images/'.$items->new_image)}}"  alt="image" width="50px"></td>
                                                 <td>{{$items->news_status}}</td>
                                                 <td>{{$items->views_count}}</td>
                                                 <td>{{$items->author_name}}</td>

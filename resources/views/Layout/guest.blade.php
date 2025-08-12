@@ -21,9 +21,9 @@
                 </button>
               
             </div>
-            <div class="d-flex">
+            <div class="d-flex ">
                 <a href="{{route('login')}}" class=" btn btn-primary">login</a>
-                <a href="{{route('register')}}" class="btn btn-primary">register</a>
+                <a href="{{route('register')}}" class="btn btn-primary ms-2">register</a>
             </div>
         </nav>
       

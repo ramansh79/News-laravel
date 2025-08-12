@@ -1,13 +1,11 @@
 @extends('Layout.header')
 @section('news')
-    <!-- <ul>
-        @foreach($news as $pots)
-            <li>
-                <a href="{{route('news.show',$pots->unique_news_id)}}">{{$pots->news_title}}</a>
-            </li>
-        @endforeach
-    </ul> -->
-    <table class="table">
+    
+
+
+    <!---------showing news list ----------->
+
+    <!-- <table class="table">
         <thead>
             <tr>
             <th scope="col">unique_news_id</th>
@@ -32,8 +30,7 @@
                         <td>{{$post->news_long_description}}</td>
                         <td class="text-center">
                             <img class="img-fluid w-25" src="{{asset('images/'.$post->new_image)}}" alt="">    
-                        
-                        
+                                                
                         </td>
                         <td>{{$post->news_status}}</td>
                         <td>{{$post->views_count}}</td>
@@ -48,11 +45,29 @@
 
             @endforeach
         </tbody>
-    </table>
+    </table> -->
+
+    <!------showing news in card---------->
+    <div class="row border m-5">
+        @foreach($news as $post)
+            <div class="col-md-4 col-lg-4 mb-4">
+                <div class="card" style="width: 14rem;">
+                    <img src="{{asset('images/'.$post->new_image)}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{$post->news_title}}</h5>
+                        <p class="card-text">{{$post->news_short_description}}</p>
+                        <a href="{{route('news.show', $post->unique_news_id)}}" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+        @endforeach
 
 
-    <form action="/news/create">
-        <input type="submit" value="create new">
-    </form>
+
+    </div>
+
+
+
+    
 
 @endsection

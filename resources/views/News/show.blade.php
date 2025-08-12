@@ -10,11 +10,10 @@
                         <img class="img-fluid " src="{{asset('images/'.$news->new_image)}}"  alt="" >
                         {{$news->new_image}}
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-7">
                         <h1>{{$news->news_title}}</h1>
-                        <table class="table table-bordered table-striped-columns ">
-                            <thead>
-                                
+                        <table class="table table-bordered table-striped-columns text-start ">
+                            <thead class="align-top">
                                 <tr>
                                     <th scope="col">unique_news_id</th>
                                     <td>{{$news->unique_news_id}}</td>
@@ -57,7 +56,7 @@
                                     <td>
                                         <form action="{{route('news.cStore',$news->unique_news_id)}}" method="GET">
                                             {{@csrf_field()}}
-                                            <input type="text" name="comments" placeholder="Add your comment here" class="form-control">
+                                            <input type="text" name="comments" placeholder="Add your comment here" class="form-control ">
                                             <input type="submit" value="Add Comment" class="btn btn-primary mt-2">
                                         </form>
                                     </td>
@@ -82,7 +81,7 @@
                                                     <div class="d-flex flex-start mt-3">
                                                         <img class="rounded-circle shadow-1-strong me-3"
                                                             src="{{asset('images/'.$comment->comment_user_image)}}" alt="avatar" width="65"
-                                                            height="65" />
+                                                            height="65"/>
                                                         <div class="flex-grow-1 flex-shrink-1">
                                                             <div>
                                                                 <div class="d-flex justify-content-between align-items-center">

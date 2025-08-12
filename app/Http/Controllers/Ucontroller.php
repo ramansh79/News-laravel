@@ -9,22 +9,18 @@ use Illuminate\Support\Facades\Hash;
 class Ucontroller extends Controller
 {
     public function registerSave(Request $request){
-        
-       
+
         $user = $request->validate([
             'user_first_name'=>'required',
             'user_last_name'=>'required',
             'user_email'=>'required|email',
             'password'=>'required|min:3',
-            'user_gender'=>'required',
-            'user_role'=>'required',
             'user_name'=>'required',
+            'user_role'=>'required',
+            'user_gender'=>'required',
             'user_image'=>'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $user['password']=Hash::make($user['password']);
-        // $user['user_name']='rat';
-        // User::create($user,[
-
         if($file= $request->file('user_image')){
 
             $name = $file->getClientOriginalName();
@@ -34,7 +30,6 @@ class Ucontroller extends Controller
         }else{
             $user['user_image']=null;
         }
-
         $createduser = User::create($user);
         if($createduser){
             return redirect()->route('login');

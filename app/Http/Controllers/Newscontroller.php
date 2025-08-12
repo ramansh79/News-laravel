@@ -20,7 +20,7 @@ class Newscontroller extends Controller
     {
         // $news = News::where('author_name', 'raman shrestha')->get();
         $news = News::all();
-        return view('Admin.index',compact('news'));
+        return view('news.index',compact('news'));
     }
 
 
@@ -59,7 +59,7 @@ class Newscontroller extends Controller
         ]);
         $news->comment()->create([
             'comment_user_name' => auth()->user()->user_name,
-            'comment_user_image' => 'rara',
+            'comment_user_image' => auth()->user()->user_image,
             'comments' => $comment['comments'],
             'user_unique_id' =>(int) auth()->user()->unique_user_id,
         ]);

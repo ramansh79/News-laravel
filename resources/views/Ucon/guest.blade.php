@@ -35,7 +35,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Sign-up</button>
+                <button href="route('register')" type="button" class="btn btn-primary">Sign-up</button>
                 <button href="{{route('login')}}" type="button" class="btn btn-primary">Login</button>
             </div>
             </div>

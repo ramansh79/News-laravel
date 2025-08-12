@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('news_title');
             $table->string('news_short_description');
             $table->string('news_long_description');
-            $table->string('new_image');+
+            $table->string('new_image');
             $table->string('news_status');
             $table->integer('views_count');
             $table->string('author_name');
