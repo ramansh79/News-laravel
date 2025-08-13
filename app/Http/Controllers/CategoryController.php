@@ -3,19 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\News;
 use App\Models\Category;
 
-class AdminController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $news = News::all();
-        $categories = Category::all();
-        return view('Admin.index',compact('news','categories'));
+        $items = Category::all();
+        return view('Category.index', compact('items'));
     }
 
     /**
@@ -23,7 +21,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('Category.create');
     }
 
     /**
@@ -31,16 +29,15 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        $input=$request->all();
-        if($file= $request->file('new_image')){
-            
-            $name=$file->getClientOriginalName();
-            $file->move('images',$name);
-            $input['new_image']=$name;
-        }
-        News::create($input);
-        
+        $category = $request->validate([
+            'category_name'=>'required|min:3',
+            'category_order'=>'required|integer',
+            'category_status'=>'required',
+
+        ]);
+        Category::create($category);
         return redirect('/newslaravel/admin');
+
     }
 
     /**
@@ -56,8 +53,8 @@ class AdminController extends Controller
      */
     public function edit(string $id)
     {
-        $pot = News::findorfail($id);
-        return view('Admin.edit',compact('pot'));
+        $items = Category::findorfail($id);
+        return view('category.edit', compact('items'));
     }
 
     /**
@@ -65,17 +62,13 @@ class AdminController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $input = $request->all();
-        if($file = $request->file('new_image')){
-
-            $name = $file->getClientOriginalName();
-            $file->move('images',$name);
-            $input['new_image']=$name;
-
-        }
-        $final = News::findorfail($id);
-        $final->update($input);
-        return redirect('/newslaravel/admin');
+        $items = Category::findorfail($id);
+        $items->update($request->validate([
+            'category_name'=>"required|min:3",
+            'category_status'=>"required",
+            'category_order'=>"required|integer",
+        ]));
+        return redirect()->route('category.index');
     }
 
     /**
@@ -83,6 +76,8 @@ class AdminController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $item = Category::findorfail($id);
+        $item->delete();
+        return redirect('/newslaravel/category');
     }
 }

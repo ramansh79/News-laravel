@@ -15,4 +15,9 @@ class Category extends Model
     public function news(){
         return $this->hasMany(News::class, 'category_id', 'category_id');
     }
+    protected function categoryStatus():Attribute{
+        return Attribute::make(
+            get: fn(string $value)=> $value == '1' ? 'Active' : 'Inactive'
+        );
+    }
 }

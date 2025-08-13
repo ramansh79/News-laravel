@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Http\Controllers\Ucontroller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Newscontroller;
+use App\Http\Controllers\Categorycontroller;
 use App\Http\Middleware\Validu1;
 
 
@@ -79,16 +80,21 @@ Route::get('insert3',function(){
 
 
 
+// Category controller routes
 
+Route::resource('/newslaravel/category','\App\Http\Controllers\Categorycontroller');
 
 
 // News controller routes
 
-Route::resource('newslaravel/news','\App\Http\Controllers\Newscontroller');
+Route::resource('/newslaravel/user/news','\App\Http\Controllers\Newscontroller');
 Route::get('/newslaravel/news/smartphones',[Newscontroller::class,'pindex'])->name('news.pindex');
 Route::get('/newslaravel/news/{id}/comment',[Newscontroller::class,'cStore'])->name('news.cStore');
 
 
+Route::resource('/newslaravel/admin/news','\App\Http\Controllers\AdminNewsController');
+
+Route::resource('/newslaravel/category','\App\Http\Controllers\Categorycontroller');
 
 // User controller routes
 
