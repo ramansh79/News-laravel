@@ -86,13 +86,14 @@ Route::resource('/newslaravel/category','\App\Http\Controllers\Categorycontrolle
 
 
 // News controller routes
+Route::resource('/newslaravel/anews','\App\Http\Controllers\NewsAdminController');
+Route::resource('/newslaravel/news','\App\Http\Controllers\Newscontroller');
 
-Route::resource('/newslaravel/user/news','\App\Http\Controllers\Newscontroller');
 Route::get('/newslaravel/news/smartphones',[Newscontroller::class,'pindex'])->name('news.pindex');
 Route::get('/newslaravel/news/{id}/comment',[Newscontroller::class,'cStore'])->name('news.cStore');
 
 
-Route::resource('/newslaravel/admin/news','\App\Http\Controllers\AdminNewsController');
+
 
 Route::resource('/newslaravel/category','\App\Http\Controllers\Categorycontroller');
 
@@ -116,7 +117,6 @@ Route::get('logout',[Ucontroller::class,'logout'])->name('logout');
 
 // Admin controller routes
 
-Route::resource('/newslaravel/admin','\App\Http\Controllers\Admincontroller');
 
 
 Route::view('/dd','Home.dd');

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\News;
 use App\Models\Category;
 
-class AdminController extends Controller
+class NewsAdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class AdminController extends Controller
     {
         $news = News::all();
         $categories = Category::all();
-        return view('Admin.index',compact('news','categories'));
+        return view('News.aindex',compact('news','categories'));
     }
 
     /**
@@ -40,7 +40,7 @@ class AdminController extends Controller
         }
         News::create($input);
         
-        return redirect('/newslaravel/admin');
+        return redirect('/newslaravel/anews');
     }
 
     /**
@@ -57,7 +57,7 @@ class AdminController extends Controller
     public function edit(string $id)
     {
         $pot = News::findorfail($id);
-        return view('Admin.edit',compact('pot'));
+        return view('News.edit',compact('pot'));
     }
 
     /**
@@ -75,7 +75,7 @@ class AdminController extends Controller
         }
         $final = News::findorfail($id);
         $final->update($input);
-        return redirect('/newslaravel/admin');
+        return redirect('/newslaravel/anews');
     }
 
     /**

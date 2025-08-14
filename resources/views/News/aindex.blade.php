@@ -1,5 +1,5 @@
 @extends('Layout.admin')
-@section('admin')
+@section('aindex')
     <section class="bg-light text-dark p-8">
         <div class="container">
             <div class="align-item-center">
@@ -59,7 +59,7 @@
                                             <td>{{$items->news_status}}</td>
                                             <td>{{$items->views_count}}</td>
                                             <td>{{$items->author_name}}</td>
-                                            <td><a class="btn btn-secondary" href="admin/{{$items->unique_news_id}}/edit">Edit</a></td>
+                                            <td><a class="btn btn-secondary" href="anews/{{$items->unique_news_id}}/edit">Edit</a></td>
                                         </tr>
                                         @endforeach
                                     </tbody>
@@ -68,7 +68,7 @@
 
                             <div class="tab-pane fade" id="nav-news-create" role="tabpanel" aria-labelledby="nav-news-create-tab" tabindex="0">
                                 <!-- News create form -->
-                                <form action="/newslaravel/admin" method="POST" enctype="multipart/form-data">
+                                <form action="/newslaravel/anews" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <table class="table">
                                         <thead>

@@ -49,6 +49,20 @@ class Newscontroller extends Controller
         return redirect('/news');
     }
 
+    public function cStore(Request $request, string $id){
+        $news = News::findorfail($id);
+        $comment = $request->validate([
+            'comments' => 'required|string|max:255',
+        ]);
+        $news->comment()->create([
+            'comment_user_name' => auth()->user()->user_name,
+            'comment_user_image' => auth()->user()->user_image,
+            'comments' => $comment['comments'],
+            'user_unique_id' =>(int) auth()->user()->unique_user_id,
+        ]);
+        return redirect()->route('news.show', $id);
+    } 
+
     /* for comment */
 
 

@@ -30,8 +30,8 @@
 
     <div class="midcontainer">
     
-    @yield('admin')
-    @yield('edit')
+    @yield('aindex')
+    @yield('aedit')
     @yield('categoryCreate')
     @yield('categoryindex')
     @yield('categoryedit')
