@@ -48,11 +48,13 @@
     </table> -->
 
     <!------showing news in card---------->
+
+    <!-- asset('images/'.$post->new_image) -->
     <div class="row border m-5">
         @foreach($news as $post)
             <div class="col-md-4 col-lg-4 mb-4">
                 <div class="card" style="width: 14rem;">
-                    <img src="{{asset('images/'.$post->new_image)}}" class="card-img-top" alt="...">
+                    <img src="{{$post->new_image}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{$post->news_title}}</h5>
                         <p class="card-text">{{$post->news_short_description}}</p>

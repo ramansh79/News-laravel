@@ -7,7 +7,7 @@
                 <div class="d-sm-flex align-items-center justify-content-between">
                     
                     <div class="me-3  col-md-3">
-                        <img class="img-fluid " src="{{asset('images/'.$news->new_image)}}"  alt="" >
+                        <img class="img-fluid " src="{{$news->new_image}}"  alt="" >
                         {{$news->new_image}}
                     </div>
                     <div class="col-md-7">

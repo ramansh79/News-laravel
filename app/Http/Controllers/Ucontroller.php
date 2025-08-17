@@ -15,7 +15,7 @@ class Ucontroller extends Controller
             'user_last_name'=>'required',
             'user_email'=>'required|email',
             'password'=>'required|min:3',
-            'user_name'=>'required',
+            'user_name'=>['required','unique:users,user_name'],
             'user_role'=>'required',
             'user_gender'=>'required',
             'user_image'=>'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -35,7 +35,15 @@ class Ucontroller extends Controller
             return redirect()->route('login');
         }       
     }
-    Public function loginmatch(Request $request){
+    
+    
+    public function checkUsername(Request $request){
+        $exists = User::where('user_name',$request->user_name)->exists();
+        return response()->json(['exists' => $exists]);
+    }
+
+
+    public function loginmatch(Request $request){
         $user = $request->validate([
             'user_email'=>'required|email',
             'password'=>'required|min:3'

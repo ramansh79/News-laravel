@@ -16,10 +16,22 @@ class Newscontroller extends Controller
         $news = News::all();
         return view('News.index',compact('news'));
     }
+    
     public function pindex()
     {
         // $news = News::where('author_name', 'raman shrestha')->get();
         $news = News::all();
+         dd($news);
+        return view('news.index',compact('news'));
+       
+    }
+    
+    /* Search News */
+    public function sindex(Request $request)
+    {
+        $search = $request->input('search');
+        $news = News::where('unique_news_id',"like", "%$search%")->get();
+        
         return view('news.index',compact('news'));
     }
 

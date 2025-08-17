@@ -21,7 +21,7 @@
             </div>
             <div class="col-md-6">
                 <label for="firstname" class="form-label">username</label>
-                <input type="text" name="user_name" class="form-control" placeholder="full name" aria-label="Full name">
+                <input type="text" name="user_name" class="form-control" id="user_name" placeholder="full name" aria-label="Full name">
             </div>
             <div class="col-md-6">
                 <label for="role" class="form-label">Role</label>
@@ -49,6 +49,34 @@
             
         
         </form>
+
+        <!-- this is for checking username availability with ajax jquery -->
+        <script>
+            $(document).ready(function(){
+                $('#user_name').blur(function(){
+                    var user_name = $(this).val();
+                    $.ajax({
+                        type: 'POST',
+                        url: "{{route('news.checkusername')}}",
+                        data: {
+                            user_name: user_name,
+                            _token: '{{ csrf_token() }}'
+                        },
+                        success: function(response) {
+                            if(response.exists) {
+                                alert('Username already exists. Please choose another one.');
+                            }else{
+                                alert('Username is available.');
+                            }
+                        },
+                        error: function(xhr, status, error) {
+                            console.error('Error checking username:', error);
+                        }
+                    });
+                })
+            })
+        </script>
+
         @if($errors->any())
             <div class="alert alert-danger">
                 <ul>

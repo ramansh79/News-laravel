@@ -11,6 +11,8 @@ use App\Http\Controllers\Categorycontroller;
 use App\Http\Middleware\Validu1;
 
 
+Route::get('/test', fn() => 'working');
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -89,8 +91,11 @@ Route::resource('/newslaravel/category','\App\Http\Controllers\Categorycontrolle
 Route::resource('/newslaravel/anews','\App\Http\Controllers\NewsAdminController');
 Route::resource('/newslaravel/news','\App\Http\Controllers\Newscontroller');
 
-Route::get('/newslaravel/news/smartphones',[Newscontroller::class,'pindex'])->name('news.pindex');
 Route::get('/newslaravel/news/{id}/comment',[Newscontroller::class,'cStore'])->name('news.cStore');
+Route::post('/newslaravel/news/search',[Newscontroller::class,'sindex'])->name('news.sindex');
+Route::post('/newslaravel/news/checkusername',[Newscontroller::class,'checkUsername'])->name('news.checkusername');
+
+Route::get('/newslaravel/news/smartphones',[Newscontroller::class,'pindex'])->name('news.pindex');
 
 
 
@@ -119,5 +124,9 @@ Route::get('logout',[Ucontroller::class,'logout'])->name('logout');
 
 
 
-Route::view('/dd','Home.dd');
+Route::view('/sample',function(){
+
+    $samples = \App\Models\Sample::all();
+    dd($samples);
+});
 
