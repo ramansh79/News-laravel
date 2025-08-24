@@ -13,19 +13,20 @@ return new class extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->id('unique_news_id');
+
             $table->unsignedBigInteger('category_id')->index();
             $table->foreign('category_id')->references('category_id')->on('categories');
 
             $table->string('news_title');
             $table->string('news_short_description');
-            $table->string('news_long_description');
+            $table->text('news_long_description');
             $table->string('new_image');
             $table->string('news_status');
             $table->integer('views_count');
             $table->string('author_name');
             $table->timestamps();
-           
-
+            
+            
 
         });
     }

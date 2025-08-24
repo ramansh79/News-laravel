@@ -18,6 +18,7 @@
                                     <th scope="col">unique_news_id</th>
                                     <td>{{$news->unique_news_id}}</td>
                                 </tr>
+                                
                                 <tr>
 
                                     <th scope="col">category_id</th>
@@ -66,10 +67,10 @@
                     </div>
                     
                 </div>
-                <div>
+                <div >
                     <section class="gradient-custom">
                         <div class="container my-5 py-5">
-                            <div class="row d-flex justify-content-center">
+                            <div class="row d-flex justify-content-end">
                                 <div class="col-md-12 col-lg-10 col-xl-8">
                                     <div class="card">
                                     <div class="card-body p-4">
@@ -78,9 +79,9 @@
                                         @foreach($comments as $comment)
                                             <div class="row">
                                                 <div class="col">
-                                                    <div class="d-flex flex-start mt-3">
+                                                    <div class="d-flex justify-content-end mt-3">
                                                         <img class="rounded-circle shadow-1-strong me-3"
-                                                            src="{{asset('images/'.$comment->comment_user_image)}}" alt="avatar" width="65"
+                                                            src="{{asset('storage/images/'.$comment->comment_user_image)}}" alt="avatar" width="65"
                                                             height="65"/>
                                                         <div class="flex-grow-1 flex-shrink-1">
                                                             <div>

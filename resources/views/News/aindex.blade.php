@@ -201,11 +201,12 @@
                                     </form>
                                 </div>
                             </div>
+                                        <!-- {{dd($categories)}} -->
 
                             <div class="tab-pane fade" id="nav-category-edit" role="tabpanel" aria-labelledby="nav-category-edit-tab" tabindex="0">
                                 <!-- Disabled edit tab -->
                                 <div>
-                                    <form action="{{route('category.update', $items->category_id)}}" method="POST">
+                                    <form action="{{route('category.update', $news->category_id)}}" method="POST">
                                         {{csrf_field()}}
                                         <table class="table boarder">
                                             <thead>

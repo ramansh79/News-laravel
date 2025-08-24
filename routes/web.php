@@ -102,6 +102,12 @@ Route::get('/newslaravel/news/smartphones',[Newscontroller::class,'pindex'])->na
 
 Route::resource('/newslaravel/category','\App\Http\Controllers\Categorycontroller');
 
+
+
+
+
+
+
 // User controller routes
 
 Route::view('/newslaravel/register','Ucon.register')->name('register');
