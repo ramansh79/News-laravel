@@ -36,7 +36,7 @@ class CategoryController extends Controller
 
         ]);
         Category::create($category);
-        return redirect('/newslaravel/admin');
+        return redirect('/newslaravel/category');
 
     }
 
