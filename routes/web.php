@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Newscontroller;
 use App\Http\Controllers\Categorycontroller;
 use App\Http\Middleware\Validu1;
+use App\Http\Controllers\AdminUserController;
 
 
 Route::get('/test', fn() => 'working');
@@ -16,6 +17,17 @@ Route::get('/test', fn() => 'working');
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
+
+Route::get('/admin/user',[AdminUserController::class,'index']);
+Route::get();
+
+
+Route::get('/admin/news',[AdminNewsController::class,'index']);
+Route::get('/admin/category',[AdminCategoryController::class,'index']);
+
 
 // inserting into news through category.
 
@@ -110,6 +122,11 @@ Route::resource('/newslaravel/category','\App\Http\Controllers\Categorycontrolle
 
 // User controller routes
 
+
+
+
+
+
 Route::view('/newslaravel/register','Ucon.register')->name('register');
 Route::post('registers',[Ucontroller::class,'registerSave'])->name('registersave');
 
@@ -124,6 +141,17 @@ Route::get('/newslaravel/home',[Ucontroller::class,'homeMain'])
 
 Route::view('/newslaravel','Ucon.guest')->name('guestPage');
 Route::get('logout',[Ucontroller::class,'logout'])->name('logout');
+
+
+
+
+Route::post('/admin/user',[AdminUserController::class,'index']);
+Route::post('/admin/news',[AdminNewsController::class,'index']);
+Route::post('/admin/category',[AdminCategoryController::class,'index']);
+
+
+
+
 
 
 // Admin controller routes
