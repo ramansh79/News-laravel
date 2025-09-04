@@ -9,7 +9,7 @@ class AdminUserController extends Controller
     public function index(){
 
         $users = \App\Models\User::all();
-        return view('Admin.user.index',compact('users'));
+        return view('admin.user.index',compact('users'));
 
     }
 }

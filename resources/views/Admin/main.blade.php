@@ -13,7 +13,7 @@
     
 </head>
 <body>
-        <div class="topcontainer">
+    <div class="topcontainer">
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand text-primary" href="{{route('homemain')}}">Newslaravel</a>
@@ -44,7 +44,7 @@
 
 
                         <!-- <li class="nav-item dropdown">
-                           
+                        
                             <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="{{route('news.pindex')}}">Smartphones</a></li>
                                 <li><a class="dropdown-item" href="#">Laptop</a></li>
@@ -53,7 +53,7 @@
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
                         </li> -->
-                       
+                    
                     </ul>
                     <!--search-->
 
@@ -77,17 +77,48 @@
         </div>
 
     </div>
-     <div class="row">
-                    <div class="col lg-3 ">
-                        <ul>
-                            <li> <a method="POST" href="{{ url('/admin/user') }}">user</a>  </li>
-                            <li> <a method="POST" href="{{ url('/admin/news') }}">news</a> </li>
-                            <li> <a href="{{ url('/admin/category') }}">category</a> </li>
-                        </ul>
-                    </div>
-                    <div class="col lg-9">
-                        @yield('content')
-                    </div>
+
+    <div class="row">
+        <!-- side bar nav -->
+        <div class="col lg-3 ">
+            <ul>
+                <li> <a method="POST" href="{{ url('/newslaravel/admin/user') }}">user</a>  </li>
+                <li> <a method="POST" href="{{ url('newslaravel/admin/news') }}">news</a> </li>
+                <li> <a href="{{ url('/admin/category') }}">category</a> </li>
+            </ul>
+        </div>
+
+        <!-- content -->
+        <div class="col lg-9">
+            
+            <div class="tab-content" id="pills-tabContent">
+
+                <!-- NEWS tab pane -->
+                <div class="tab-pane fade show active " id="pills-news" role="tabpanel" aria-labelledby="pills-news-tab" tabindex="0">
+
+                    
+                    <!-- News sub-tabs -->
+                    
+                    <nav>
+                        <div class="nav nav-tabs" id="nav-news-tab" role="tablist">
+                            <button class="nav-link active" id="nav-news-index-tab" data-bs-toggle="tab" data-bs-target="#nav-news-index" type="button" role="tab" aria-controls="nav-news-index" aria-selected="true">Index</button>
+                            
+                            <button class="nav-link" id="nav-news-create-tab" data-bs-toggle="tab" data-bs-target="#nav-news-create" type="button" role="tab" aria-controls="nav-news-create" aria-selected="false">Create</button>
+                            <button class="nav-link" id="nav-news-edit-tab" data-bs-toggle="tab" data-bs-target="#nav-news-edit" type="button" role="tab" aria-controls="nav-news-edit" aria-selected="false" disabled>Edit</button>
+                        
+                        </div>
+                    </nav>
+                    
+                        
+                    @yield('content')
+                    
+            
+                            
+                </div>
+            </div>
+
+           
+        </div>
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>

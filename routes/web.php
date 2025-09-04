@@ -1,15 +1,21 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 use App\Models\News;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\User;
+
+use App\Http\Controllers\AdminNewsController;
+use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\AdminCategoryController;
+
 use App\Http\Controllers\Ucontroller;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Newscontroller;
 use App\Http\Controllers\Categorycontroller;
+
 use App\Http\Middleware\Validu1;
-use App\Http\Controllers\AdminUserController;
 
 
 Route::get('/test', fn() => 'working');
@@ -21,12 +27,6 @@ Route::get('/', function () {
 
 
 
-Route::get('/admin/user',[AdminUserController::class,'index']);
-Route::get();
-
-
-Route::get('/admin/news',[AdminNewsController::class,'index']);
-Route::get('/admin/category',[AdminCategoryController::class,'index']);
 
 
 // inserting into news through category.
@@ -100,7 +100,6 @@ Route::resource('/newslaravel/category','\App\Http\Controllers\Categorycontrolle
 
 
 // News controller routes
-Route::resource('/newslaravel/anews','\App\Http\Controllers\NewsAdminController');
 Route::resource('/newslaravel/news','\App\Http\Controllers\Newscontroller');
 
 Route::get('/newslaravel/news/{id}/comment',[Newscontroller::class,'cStore'])->name('news.cStore');
@@ -145,13 +144,36 @@ Route::get('logout',[Ucontroller::class,'logout'])->name('logout');
 
 
 
-Route::post('/admin/user',[AdminUserController::class,'index']);
-Route::post('/admin/news',[AdminNewsController::class,'index']);
-Route::post('/admin/category',[AdminCategoryController::class,'index']);
 
 
 
 
+
+//---------------------Revised-------------------------------------------//
+
+
+
+Route::view('/newslaravel/admin','admin.main')->name('admin.main');
+
+
+
+Route::post('/newslaravel/admin/user',[AdminUserController::class,'index']);
+Route::post('/newslaravel/admin/category',[AdminCategoryController::class,'index']);
+
+
+Route::get('/newslaravel/admin/news',[AdminNewsController::class,'index'])->name('admin.news.index');
+Route::get('/newslaravel/admin/news/create',[AdminNewsController::class,'create'])->name('admin.news.create');
+
+
+
+
+
+
+// Route::get('/admin/user',[AdminUserController::class,'index']);
+
+
+// Route::get('/admin/news',[AdminNewsController::class,'index']);
+// Route::get('/admin/category',[AdminCategoryController::class,'index']);
 
 
 // Admin controller routes

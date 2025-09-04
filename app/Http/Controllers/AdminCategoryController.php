@@ -9,7 +9,7 @@ class AdminCategoryController extends Controller
     public function index(){
 
         $categories = \App\Models\Category::all();
-        return view('Admin.category.index',compact('categories'));
+        return view('admin.category.index',compact('categories'));
 
     }
 }

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\News;
 use App\Models\Category;
 
-class NewsAdminController extends Controller
+class AdminNewsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class NewsAdminController extends Controller
     {
         $news = News::all();
         $categories = Category::all();
-        return view('News.aindex',compact('news','categories'));
+        return view('admin.news.index',compact('news','categories'));
     }
 
     /**
@@ -23,7 +23,8 @@ class NewsAdminController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view('admin.news.create',compact('categories'));
     }
 
     /**

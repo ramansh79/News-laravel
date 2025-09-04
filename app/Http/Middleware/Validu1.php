@@ -21,7 +21,7 @@ class validu1
         if(Auth::check() && Auth::user()->user_role != $role){
             return $next($request);
         }elseif(Auth::check() && Auth::user()->user_role == $role){
-            return redirect()->route('anews.index');
+            return redirect()->route('admin.main');
         }else{
             return redirect()->route('guestPage');
         }
