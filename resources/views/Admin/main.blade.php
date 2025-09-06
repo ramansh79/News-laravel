@@ -84,7 +84,7 @@
             <ul>
                 <li> <a method="POST" href="{{ url('/newslaravel/admin/user') }}">user</a>  </li>
                 <li> <a method="POST" href="{{ url('newslaravel/admin/news') }}">news</a> </li>
-                <li> <a href="{{ url('/admin/category') }}">category</a> </li>
+                <li> <a href="{{ url('newslaral/admin/category') }}">category</a> </li>
             </ul>
         </div>
 
@@ -101,11 +101,17 @@
                     
                     <nav>
                         <div class="nav nav-tabs" id="nav-news-tab" role="tablist">
-                            <button class="nav-link active" id="nav-news-index-tab" data-bs-toggle="tab" data-bs-target="#nav-news-index" type="button" role="tab" aria-controls="nav-news-index" aria-selected="true">Index</button>
+                            <!-- <button class="nav-link active" id="nav-news-index-tab" data-bs-toggle="tab" data-bs-target="#nav-news-index" type="button" role="tab" aria-controls="nav-news-index" aria-selected="true">Index</button>
+                            <button class="nav-link" id="nav-news-create-tab" data-bs-toggle="tab" data-bs-target="#nav-news-create" type="button" role="tab" aria-controls="nav-news-create" aria-selected="false">Create</button> 
+                            <button class="nav-link" id="nav-news-edit-tab" data-bs-toggle="tab" data-bs-target="#nav-news-edit" type="button" role="tab" aria-controls="nav-news-edit" aria-selected="false" disabled>Edit</button>-->
                             
-                            <button class="nav-link" id="nav-news-create-tab" data-bs-toggle="tab" data-bs-target="#nav-news-create" type="button" role="tab" aria-controls="nav-news-create" aria-selected="false">Create</button>
-                            <button class="nav-link" id="nav-news-edit-tab" data-bs-toggle="tab" data-bs-target="#nav-news-edit" type="button" role="tab" aria-controls="nav-news-edit" aria-selected="false" disabled>Edit</button>
-                        
+                            <a href="{{ route('admin.news.index') }}" class="nav-link {{ request()->routeIs('admin.news.index') ? 'active' : '' }}">Index</a>
+                            <a href="{{ route('admin.news.create') }}" class="nav-link {{ request()->routeIs('admin.news.create') ? 'active' : '' }}">Create</a>
+                            <a class="nav-link disabled">Edit</a>
+                            
+
+                            
+
                         </div>
                     </nav>
                     

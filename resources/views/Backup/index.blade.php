@@ -1,6 +1,7 @@
 @extends('admin.main')
 @section('content')
                
+    <div class="tab-content" id="nav-news-tabContent">
         <div class="tab-pane fade show active" id="nav-news-index" role="tabpanel" aria-labelledby="nav-news-index-tab" tabindex="0">
             <!-- News index table -->
             <table class="table">
@@ -43,7 +44,7 @@
             <!-- Disabled edit tab -->
             <p>Edit tab is currently disabled.</p>
         </div>
-
+    </div>
     
         
 @endsection

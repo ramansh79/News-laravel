@@ -132,11 +132,22 @@ Route::post('registers',[Ucontroller::class,'registerSave'])->name('registersave
 Route::view('/newslaravel/login','Ucon.login')->name('login');
 Route::post('loginmatch',[Ucontroller::class,'loginmatch'])->name('loginmatch');
 
-Route::get('/newslaravel/home',[Ucontroller::class,'homeMain'])
-    ->name('homemain')
-    ->middleware('IsValid1:admin');
 
-// Route::get('/index',[Newscontroller::class,'index'])->name('news');
+//---the upper route is commented cause it is used in group middleware--//
+
+// Route::get('/newslaravel/home',[Ucontroller::class,'homeMain'])
+//     ->name('homemain')
+//     ->middleware('IsValid1:admin');
+
+Route::middleware(['IsValid1:admin'])->group(function(){
+    Route::get('/newslaravel/home',[Ucontroller::class,'homeMain'])->name('homemain');
+});
+
+
+
+
+
+
 
 Route::view('/newslaravel','Ucon.guest')->name('guestPage');
 Route::get('logout',[Ucontroller::class,'logout'])->name('logout');
@@ -157,8 +168,8 @@ Route::view('/newslaravel/admin','admin.main')->name('admin.main');
 
 
 
-Route::post('/newslaravel/admin/user',[AdminUserController::class,'index']);
-Route::post('/newslaravel/admin/category',[AdminCategoryController::class,'index']);
+Route::get('/newslaravel/admin/user',[AdminUserController::class,'index']);
+Route::get('/newslaravel/admin/category',[AdminCategoryController::class,'index']);
 
 
 Route::get('/newslaravel/admin/news',[AdminNewsController::class,'index'])->name('admin.news.index');
