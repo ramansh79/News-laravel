@@ -1,14 +1,13 @@
 @extends('admin.main')
 @section('content')
   
-    <link href="{{ asset('resources/css/layouthead.css') }}" rel="stylesheet">
 
     
     <div class="tab-content" id="nav-news-tabContent">
        
         <div class="tab-pane fade show active" id="nav-news-create" role="tabpanel" aria-labelledby="nav-news-create-tab" tabindex="0">
             <!-- News create form -->
-            <form action="/newslaravel/anews" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin.news.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <table class="table">
                     <thead>

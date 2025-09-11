@@ -13,7 +13,7 @@ class AdminNewsController extends Controller
      */
     public function index()
     {
-        $news = News::all();
+        $news = News::paginate(20);
         $categories = Category::all();
         return view('admin.news.index',compact('news','categories'));
     }
@@ -40,8 +40,7 @@ class AdminNewsController extends Controller
             $input['new_image']=$name;
         }
         News::create($input);
-        
-        return redirect('/newslaravel/anews');
+        return redirect('/newslaravel/admin/news');
     }
 
     /**
@@ -57,8 +56,8 @@ class AdminNewsController extends Controller
      */
     public function edit(string $id)
     {
-        $pot = News::findorfail($id);
-        return view('News.edit',compact('pot'));
+        $news = News::findorfail($id);
+        return view('admin.news.edit',compact('news'));
     }
 
     /**
@@ -76,7 +75,7 @@ class AdminNewsController extends Controller
         }
         $final = News::findorfail($id);
         $final->update($input);
-        return redirect('/newslaravel/anews');
+        return redirect('/newslaravel/admin/news');
     }
 
     /**

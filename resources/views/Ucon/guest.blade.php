@@ -17,7 +17,7 @@
                         Get Engaged
                     </button>
                 </div>
-                <img class="img-fluid w-50 d-none d-sm-block " src="storage/images/egadget.png" height="20px" alt="" >
+                <img class="img-fluid w-50 d-none d-sm-block " src="/storage/images/egadget.png" height="20px" alt="" >
             </div>
             </div>
     </section>

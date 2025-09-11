@@ -174,6 +174,9 @@ Route::get('/newslaravel/admin/category',[AdminCategoryController::class,'index'
 
 Route::get('/newslaravel/admin/news',[AdminNewsController::class,'index'])->name('admin.news.index');
 Route::get('/newslaravel/admin/news/create',[AdminNewsController::class,'create'])->name('admin.news.create');
+Route::post('/newslaravel/admin/news',[AdminNewsController::class,'store'])->name('admin.news.store');
+Route::get('/newslaravel/admin/news/{news}/edit',[AdminNewsController::class,'edit'])->name('admin.news.edit');
+Route::put('/newslaravel/admin/news/{news}',[AdminNewsController::class,'update'])->name('admin.news.update');
 
 
 

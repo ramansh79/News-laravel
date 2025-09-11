@@ -26,19 +26,23 @@
                         <td>{{$items->news_title}}</td>
                         <td>{{$items->news_short_description}}</td>
                         <td>{{$items->news_long_description}}</td>
-                        <td><img src="{{ asset('/images/'.$items->new_image) }}" alt="image" width="50"></td>
+                        <!-- <td><img src="{{ asset('/images/'.$items->new_image) }}" alt="image" width="50"></td> -->
+
+                        <td><img src="{{ $items->new_image }}" alt="image" width="50"></td>
+
                         <td>{{$items->news_status}}</td>
                         <td>{{$items->views_count}}</td>
                         <td>{{$items->author_name}}</td>
                         <td>
-                            <a class="btn btn-secondary" href="anews/{{$items->unique_news_id}}/edit">Edit</a>
+                            <a href="{{ route('admin.news.edit', $items->unique_news_id) }}" class="btn btn-secondary {{ request()-> routeIs('admin.news.edit', $items->unique_news_id) ? 'active' : '' }}" >Edit</a>
                         </td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
+            {{ $news->links() }}
         </div>
-
+        
         <div class="tab-pane fade" id="nav-news-edit" role="tabpanel" aria-labelledby="nav-news-edit-tab" tabindex="0">
             <!-- Disabled edit tab -->
             <p>Edit tab is currently disabled.</p>
