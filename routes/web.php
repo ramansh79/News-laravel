@@ -169,6 +169,9 @@ Route::view('/newslaravel/admin','admin.main')->name('admin.main');
 
 
 Route::get('/newslaravel/admin/user',[AdminUserController::class,'index']);
+Route::get('/newslaravel/admin/user/{user}/edit',[AdminUserController::class,'edit'])->name('admin.user.edit');
+Route::put('/newslaravel/admin/user/{user}',[AdminUserController::class,'update'])->name('admin.user.update');
+
 Route::get('/newslaravel/admin/category',[AdminCategoryController::class,'index']);
 
 

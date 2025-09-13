@@ -8,8 +8,9 @@
     <!-- Add Bootstrap CSS CDN below -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link href="{{ asset('css/layoutadmin.css') }}" rel="stylesheet">
-    <script src="{{asset('js/script.js') }}"></script>         
+    <!-- <link href="{{ asset('css/layoutadmin.css') }}" rel="stylesheet"> -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+            
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     
     <!-- lineicons cdn -->
@@ -93,6 +94,7 @@
                     </div>
                 </div>
 
+
                 <!-- list -->
                 <ul class="sidebar-nav">
                     <li class="sidebar-item">
@@ -112,7 +114,7 @@
                     <li class="sidebar-item">
                         <a href="#" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse" data-bs-target="#multi" aria-expanded="true" aria-controls="multi">
                             <i class="lni lni-layout-9"></i>
-                            <span>Insert</span>
+                            <span>Datas</span>
                         </a>
                         <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                             <li class="sidebar-item">
@@ -166,6 +168,7 @@
             </div>
         </div>     
     </div>
+    <script src="{{ asset('js/script.js') }}"></script> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 </body>
 </html>
