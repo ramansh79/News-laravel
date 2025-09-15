@@ -8,17 +8,16 @@
     <!-- Add Bootstrap CSS CDN below -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <!-- <link href="{{ asset('css/layoutadmin.css') }}" rel="stylesheet"> -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
             
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-    
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
     <!-- lineicons cdn -->
     <link rel="stylesheet" href="https://cdn.lineicons.com/5.0/lineicons.css" />
     
 </head> 
 <body>
-    <div class="topcontainer">
+    <div class="topcontainer header">
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand text-primary" href="{{route('homemain')}}">Newslaravel</a>
@@ -77,98 +76,84 @@
 
     </div>
 
-    <div class="row">
-        
-        <!-- side bar -->
-        <div class="wrapper">
-            <aside id="sidebar">
-                
-                <!-- head button and name -->
-                <div class="d-flex">
-                    <button id="toggle-btn" type="button">
-                        <i class="lni lni-angle-double-right"></i>
-                                        
-                    </button>
-                    <div class="sidebar-logo">
-                        <a href="">CodzSword</a>
-                    </div>
-                </div>
+    
+    <!-- side bar -->
+   
+    <aside class="sidebar">
+        <!-- list -->
+        <ul class="sidebar-nav">
+            <li class="sidebar-item">
+                <a href="{{ url('/newslaravel/admin/user') }}" class="sidebar-link">
+                    <i class="lni lni-user-4"></i>
+                    <span>User</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link">
+                    <i class="lni lni-agenda"></i>
+                    <span>Task</span>
+                </a>
+            </li>    
 
-
-                <!-- list -->
-                <ul class="sidebar-nav">
+            <!-- multilevel list -->
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse" data-bs-target="#multi" aria-expanded="true" aria-controls="multi">
+                    <i class="lni lni-layout-9"></i>
+                    <span>Datas</span>
+                </a>
+                <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                     <li class="sidebar-item">
-                        <a href="{{ url('/newslaravel/admin/user') }}" class="sidebar-link">
-                            <i class="lni lni-user-4"></i>
-                            <span>User</span>
-                        </a>
+                        <a href="{{ url('/newslaravel/admin/news') }}" method="POST" class="sidebar-link collapsed" >News</a> 
+                                                        
                     </li>
                     <li class="sidebar-item">
-                        <a href="#" class="sidebar-link">
-                            <i class="lni lni-agenda"></i>
-                            <span>Task</span>
-                        </a>
-                    </li>    
-
-                    <!-- multilevel list -->
-                    <li class="sidebar-item">
-                        <a href="#" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse" data-bs-target="#multi" aria-expanded="true" aria-controls="multi">
-                            <i class="lni lni-layout-9"></i>
-                            <span>Datas</span>
-                        </a>
-                        <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                            <li class="sidebar-item">
-                                <a href="{{ url('/newslaravel/admin/news') }}" method="POST" class="sidebar-link collapsed" >News</a> 
-                                                               
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="{{ url('/newslaravel/admin/category') }}" class="sidebar-link collapsed">Category</a>
-                            </li>
-                        </ul>
+                        <a href="{{ url('/newslaravel/admin/category') }}" class="sidebar-link collapsed">Category</a>
                     </li>
-
-
                 </ul>
+            </li>
 
-                <!-- sidebar footer -->
-                <div class="sidebar-footer">
-                    <a href="#" class="sidebar-link">
-                        <i class="lni lni-exit"></i>
-                        <span>Logout</span>
-                    </a>
-                </div>
-            </aside>
 
-            <!-- content on right -->
-            <div class="col lg-9">
+        </ul>
+
+        <!-- sidebar footer -->
+        <div class="sidebar-footer">
+            <a href="#" class="sidebar-link">
+                <i class="lni lni-exit"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+    
+
+    <!-- content on right -->
+    <div class="main-content">
+
+        <div class="tab-content" id="pills-tabContent">
+
+            <!-- NEWS tab pane -->
+            <div class="tab-pane fade show active " id="pills-news" role="tabpanel" aria-labelledby="pills-news-tab" tabindex="0">
+
                 
-                <div class="tab-content" id="pills-tabContent">
-
-                    <!-- NEWS tab pane -->
-                    <div class="tab-pane fade show active " id="pills-news" role="tabpanel" aria-labelledby="pills-news-tab" tabindex="0">
-
+                <!-- News sub-tabs -->
+                
+                <nav>
+                    <div class="nav nav-tabs" id="nav-news-tab" role="tablist">
+                        <!-- <button class="nav-link active" id="nav-news-index-tab" data-bs-toggle="tab" data-bs-target="#nav-news-index" type="button" role="tab" aria-controls="nav-news-index" aria-selected="true">Index</button>
+                        <button class="nav-link" id="nav-news-create-tab" data-bs-toggle="tab" data-bs-target="#nav-news-create" type="button" role="tab" aria-controls="nav-news-create" aria-selected="false">Create</button> 
+                        <button class="nav-link" id="nav-news-edit-tab" data-bs-toggle="tab" data-bs-target="#nav-news-edit" type="button" role="tab" aria-controls="nav-news-edit" aria-selected="false" disabled>Edit</button>-->
                         
-                        <!-- News sub-tabs -->
-                        
-                        <nav>
-                            <div class="nav nav-tabs" id="nav-news-tab" role="tablist">
-                                <!-- <button class="nav-link active" id="nav-news-index-tab" data-bs-toggle="tab" data-bs-target="#nav-news-index" type="button" role="tab" aria-controls="nav-news-index" aria-selected="true">Index</button>
-                                <button class="nav-link" id="nav-news-create-tab" data-bs-toggle="tab" data-bs-target="#nav-news-create" type="button" role="tab" aria-controls="nav-news-create" aria-selected="false">Create</button> 
-                                <button class="nav-link" id="nav-news-edit-tab" data-bs-toggle="tab" data-bs-target="#nav-news-edit" type="button" role="tab" aria-controls="nav-news-edit" aria-selected="false" disabled>Edit</button>-->
-                                
-                                <a href="{{ route('admin.news.index') }}" class="nav-link {{ request()->routeIs('admin.news.index') ? 'active' : '' }}">Index</a>
-                                <a href="{{ route('admin.news.create') }}" class="nav-link {{ request()->routeIs('admin.news.create') ? 'active' : '' }}">Create</a>
-                                <a class="nav-link disabled ">Edit</a>
-                            </div>
-                        </nav>
-        
-                        @yield('content')             
+                        <a href="{{ route('admin.news.index') }}" class="nav-link {{ request()->routeIs('admin.news.index') ? 'active' : '' }}">Index</a>
+                        <a href="{{ route('admin.news.create') }}" class="nav-link {{ request()->routeIs('admin.news.create') ? 'active' : '' }}">Create</a>
+                        <a class="nav-link disabled ">Edit</a>
                     </div>
-                </div>       
+                </nav>
+
+                @yield('content')             
             </div>
-        </div>     
+        </div>       
     </div>
-    <script src="{{ asset('js/script.js') }}"></script> 
+      
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 </body>
 </html>

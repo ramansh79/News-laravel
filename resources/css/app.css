@@ -1,17 +1,36 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
 
-.sidebar {
-    width: 220px;
-    min-height: 100vh;
-    background: #f8f9fa;
-    padding: 20px 10px;
-    border-right: 1px solid #dee2e6;
+
+/* header */
+
+.header{
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 100;
+    width: 100%;
+    height: 73px; /* match sidebar margin-top */
+    z-index: 1000; /* ensure header is above sidebar */
+    background: #fff;
+    border-bottom: 1px solid #dee2e6;
+}
+
+
+/* side bar */
+
+.sidebar {
+    width: 220px;
+    min-height: calc(100vh - 73px);
+    background: #f8f9fa;
+    padding: 20px 10px;
+    border-right: 1px solid #dee2e6;
+
+    top: 73px; /* push sidbar below header */
+    left: 0;
+    position: fixed; /* make sidebar fixed */
+    z-index: 999; /* ensure sidebar is below header */
+    overflow-y: auto; /* enable vertical scrolling if content overflows */
 }
 
 .sidebar-nav {
@@ -25,7 +44,8 @@
 }
 
 .sidebar-nav a {
-    display: block;
+    display: flex;
+    align-items: center;
     color: #333;
     text-decoration: none;
     padding: 8px 12px;
@@ -38,4 +58,12 @@
 .sidebar-nav a.active {
     background: #0d6efd;
     color: #fff;
+}
+
+/* main content */
+.main-content {
+    margin-left: 220px; /* push content right of sidebar */
+    padding: 30px;
+    padding-top: 90px; /* add space for header */
+    flex: 1;
 }

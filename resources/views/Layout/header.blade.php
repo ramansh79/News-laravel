@@ -73,9 +73,7 @@
                 </div>
             </div>
         </nav>
-        <div class="text-end ">
-            <h6 class="mb-0">Hello! {{Auth::User()->user_name}}</h6> 
-        </div>
+        
 
     </div>
 

@@ -3,24 +3,27 @@
 
     <!-- top section -->
     <section class="bg-dark text-light p-5 pt-5 p-lg-0  text-center test-sm-start">
-            <div class="container">
-                <div class="d-sm-flex align-item-center ">
-                    <div class="align-item-center mt-5">
-                        <h1 class="bg-dark">Get all the news becoming a <span class="text-warning">Member</span> </h1>
-                        <p class="lead my-4" >
-                            We focus on providing lettest and greatest updates and upgrades to the recent available mobile devices,
-                            so that you can get the lettest news.
-                        </p>
-                        <button 
-                            class="btn btn-primary btn-lg" 
-                            data-bs-toggle="modal" 
-                            data-bs-target="#enroll">
-                            About Us
-                        </button>
-                    </div>
-                    <img class="img-fluid w-50 d-none d-sm-block " src="/storage/images/egadget.png" height="20px" alt="" >
+        <div class="text-end p-3">
+            <h6 class="mb-0">Hello! {{Auth::User()->user_name}}</h6> 
+        </div>
+        <div class="container">
+            <div class="d-sm-flex align-item-center ">
+                <div class="align-item-center mb-5 pb-5">
+                    <h1 class="bg-dark">Get all the news becoming a <span class="text-warning">Member</span> </h1>
+                    <p class="lead my-4" >
+                        We focus on providing lettest and greatest updates and upgrades to the recent available mobile devices,
+                        so that you can get the lettest news.
+                    </p>
+                    <button 
+                        class="btn btn-primary btn-lg" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#enroll">
+                        About Us
+                    </button>
                 </div>
+                <img class="img-fluid w-50 d-none d-sm-block " src="/storage/images/egadget.png" height="20px" alt="" >
             </div>
+        </div>
     </section>
     <!-- second sec -->
     <section class="bg-primary text-light p-5">

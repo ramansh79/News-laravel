@@ -15,6 +15,7 @@ use App\Http\Controllers\Ucontroller;
 use App\Http\Controllers\Newscontroller;
 use App\Http\Controllers\Categorycontroller;
 
+use App\Http\Controllers\EmailController;
 use App\Http\Middleware\Validu1;
 
 
@@ -164,7 +165,7 @@ Route::get('logout',[Ucontroller::class,'logout'])->name('logout');
 
 
 
-Route::view('/newslaravel/admin','admin.main')->name('admin.main');
+Route::view('/s','admin.main')->name('admin.main');
 
 
 
@@ -181,7 +182,9 @@ Route::post('/newslaravel/admin/news',[AdminNewsController::class,'store'])->nam
 Route::get('/newslaravel/admin/news/{news}/edit',[AdminNewsController::class,'edit'])->name('admin.news.edit');
 Route::put('/newslaravel/admin/news/{news}',[AdminNewsController::class,'update'])->name('admin.news.update');
 
+//---------------------email-----------------------//
 
+Route::get('newslaravel/sendemail',[EmailController::class,'sendEmail'])->name('sendemail');
 
 
 
