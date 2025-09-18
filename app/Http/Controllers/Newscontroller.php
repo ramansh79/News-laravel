@@ -14,7 +14,7 @@ class Newscontroller extends Controller
     public function index()
     {
         $news = News::Paginate(8);
-        return view('News.index',compact('news'));
+        return view('news.bindex',compact('news'));
     }
     
     public function pindex()
@@ -87,7 +87,9 @@ class Newscontroller extends Controller
     {
         $news = News::findorfail($id);
         $comments = $news->comment;
-        return view('News.show',compact('news', 'comments'));
+        $news->increment('views_count');
+
+        return view('news.show',compact('news', 'comments'));
                
     }
     /**

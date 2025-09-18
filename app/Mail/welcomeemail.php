@@ -13,6 +13,8 @@ class welcomeemail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    //creating member variable
+    
     public $mailmessage;
     public $subject;
     /**

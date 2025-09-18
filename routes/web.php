@@ -15,8 +15,9 @@ use App\Http\Controllers\Ucontroller;
 use App\Http\Controllers\Newscontroller;
 use App\Http\Controllers\Categorycontroller;
 
-use App\Http\Controllers\EmailController;
+use App\Http\Controllers\Samples\EmailController;
 use App\Http\Middleware\Validu1;
+
 
 
 Route::get('/test', fn() => 'working');
@@ -79,14 +80,6 @@ Route::get('insert3',function(){
     ]));
 });
 
-//---------------column not folund 'category_id'----------------------------//
-
-// Route::get('/my2',function(){
-//     $pot = News::where('id','1')->first();
-//     foreach($pot->newscomment as $pots){
-//         dump($pots->disabled_by);
-//     }
-// });
 
 
 
@@ -95,12 +88,16 @@ Route::get('insert3',function(){
 
 
 
-// Category controller routes
+/*------------------ Category controller routes ------------------*/
 
 Route::resource('/newslaravel/category','\App\Http\Controllers\Categorycontroller');
 
 
-// News controller routes
+
+
+
+
+/*------------------- News controller routes -------------------*/
 Route::resource('/newslaravel/news','\App\Http\Controllers\Newscontroller');
 
 Route::get('/newslaravel/news/{id}/comment',[Newscontroller::class,'cStore'])->name('news.cStore');
@@ -120,9 +117,7 @@ Route::resource('/newslaravel/category','\App\Http\Controllers\Categorycontrolle
 
 
 
-// User controller routes
-
-
+//--------------------User controller routes---------------------------//
 
 
 
@@ -162,7 +157,10 @@ Route::get('logout',[Ucontroller::class,'logout'])->name('logout');
 
 
 //---------------------Revised-------------------------------------------//
+/*-
+ Routes for each component of admin pannel  
 
+-*/
 
 
 Route::view('/s','admin.main')->name('admin.main');
@@ -173,7 +171,10 @@ Route::get('/newslaravel/admin/user',[AdminUserController::class,'index']);
 Route::get('/newslaravel/admin/user/{user}/edit',[AdminUserController::class,'edit'])->name('admin.user.edit');
 Route::put('/newslaravel/admin/user/{user}',[AdminUserController::class,'update'])->name('admin.user.update');
 
+
+
 Route::get('/newslaravel/admin/category',[AdminCategoryController::class,'index']);
+
 
 
 Route::get('/newslaravel/admin/news',[AdminNewsController::class,'index'])->name('admin.news.index');
@@ -182,6 +183,27 @@ Route::post('/newslaravel/admin/news',[AdminNewsController::class,'store'])->nam
 Route::get('/newslaravel/admin/news/{news}/edit',[AdminNewsController::class,'edit'])->name('admin.news.edit');
 Route::put('/newslaravel/admin/news/{news}',[AdminNewsController::class,'update'])->name('admin.news.update');
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //---------------------email-----------------------//
 
 Route::get('newslaravel/sendemail',[EmailController::class,'sendEmail'])->name('sendemail');
@@ -189,20 +211,73 @@ Route::get('newslaravel/sendemail',[EmailController::class,'sendEmail'])->name('
 
 
 
-// Route::get('/admin/user',[AdminUserController::class,'index']);
-
-
-// Route::get('/admin/news',[AdminNewsController::class,'index']);
-// Route::get('/admin/category',[AdminCategoryController::class,'index']);
-
-
-// Admin controller routes
 
 
 
-Route::view('/sample',function(){
 
-    $samples = \App\Models\Sample::all();
-    dd($samples);
+
+
+
+
+
+
+
+
+
+//--------------------session and cookie------------------//
+
+// Route::get('/newslaravel/session',[SesonController::class,'readSession'])->name('readsession');
+// Route::get('/newslaravel/session/store',[SesonController::class,'storeCookie'])->name('storesession');
+
+
+Route::get('/newslaravel/session',function(){
+    
+    // retriving all session data 
+
+    // $value = session()->all();
+    // echo '<pre>';
+    // print_r($value);
+    // echo '</pre>';
+
+    // retriving single session data
+    $value = session()->get('name',"default");
+
+
+    // or
+
+    $value = session('name');
+
+    echo $value;
+
+
 });
+
+Route::get('/newslaravel/session/store',function(){
+    
+    session(['name'=>'aman']);
+
+
+
+
+    return redirect('/newslaravel/session');
+});
+
+Route::get('/newslaravel/session/remove',function(){
+    
+    // removing array of session data
+    // session()->forget('name');
+
+    // removing all session data
+    session()->flush();
+
+    return redirect('/newslaravel/session');
+});
+
+
+
+
+
+
+
+
 
