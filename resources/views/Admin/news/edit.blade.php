@@ -2,7 +2,7 @@
 @section('content')
 
         <div class="tab-pane fade show active table-responsive" id="nav-news-edit" role="tabpanel" aria-labelledby="nav-news-edit-tab" tabindex="0">
-            <table class="table">
+            <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th scope="col">unique_news_id</th>
@@ -32,7 +32,7 @@
                             <td><input type="number" name="views_count" value="{{$news->views_count}}"></td>
                             <td><input type="text" name="author_name" value="{{$news->author_name}}"></td>
                             <td><input type="submit" value="update"></td>
-                            <td><a href="/newslaravel/anews" class="btn">Cancel</a></td>
+                            <td><a href="/newslaravel/admin/news" class="btn btn-sm btn-secondary px-1">Cancel </a></td>
                         </form>
                         
 

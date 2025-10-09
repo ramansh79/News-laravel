@@ -18,10 +18,11 @@ class validu1
     {
         // echo "valid 1";
         // echo ".$role.";
-        if(Auth::check() && Auth::user()->user_role != $role){
+        if(Auth::check() && Auth::user()->user_role == $role){
             return $next($request);
-        }elseif(Auth::check() && Auth::user()->user_role == $role){
-            return redirect()->route('admin.main');
+        }elseif(Auth::check() && Auth::user()->user_role != $role)//here if user is logged in but not admin then redirect to -home page only, so need to configure later...
+        {
+            return redirect()->route('home.main');
         }else{
             return redirect()->route('guestPage');
         }

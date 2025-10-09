@@ -9,7 +9,7 @@
             <!-- News create form -->
             <form action="{{ route('admin.news.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <table class="table">
+                <table class="table table-bordered">
                     <thead>
                         <tr>
                             <th>unique_news_id</th>

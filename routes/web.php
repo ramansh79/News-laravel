@@ -15,8 +15,9 @@ use App\Http\Controllers\Ucontroller;
 use App\Http\Controllers\Newscontroller;
 use App\Http\Controllers\Categorycontroller;
 
-use App\Http\Controllers\Samples\EmailController;
+use App\Http\Controllers\EmailControllerThree;
 use App\Http\Middleware\Validu1;
+use App\Http\NewController;
 
 
 
@@ -117,7 +118,7 @@ Route::resource('/newslaravel/category','\App\Http\Controllers\Categorycontrolle
 
 
 
-//--------------------User controller routes---------------------------//
+//--------------------User auth controller routes---------------------------//
 
 
 
@@ -163,25 +164,34 @@ Route::get('logout',[Ucontroller::class,'logout'])->name('logout');
 -*/
 
 
-Route::view('/s','admin.main')->name('admin.main');
+Route::view('/newslaravel/admindashboard','admin.main')->name('admin.main'); //admin dashboard route redirected from middleware if user is admin.
+
+//grouping all admin routes in middleware to check if the user is admin or not.
+//IsValid1 is the alias name of middleware given in bootstrap/app.php
+
+Route::middleware(['IsValid1:admin'])->group(function(){
+
+
+    Route::get('/newslaravel/admin/user',[AdminUserController::class,'index'])->name('admin.user.index');
+    Route::get('/newslaravel/admin/user/{user}/edit',[AdminUserController::class,'edit'])->name('admin.user.edit');
+    Route::put('/newslaravel/admin/user/{user}',[AdminUserController::class,'update'])->name('admin.user.update');
 
 
 
-Route::get('/newslaravel/admin/user',[AdminUserController::class,'index']);
-Route::get('/newslaravel/admin/user/{user}/edit',[AdminUserController::class,'edit'])->name('admin.user.edit');
-Route::put('/newslaravel/admin/user/{user}',[AdminUserController::class,'update'])->name('admin.user.update');
+    Route::get('/newslaravel/admin/category',[AdminCategoryController::class,'index'])->name('admin.category.index');
 
 
 
-Route::get('/newslaravel/admin/category',[AdminCategoryController::class,'index']);
+    Route::get('/newslaravel/admin/news',[AdminNewsController::class,'index'])->name('admin.news.index');
+    Route::get('/newslaravel/admin/news/create',[AdminNewsController::class,'create'])->name('admin.news.create');
+    Route::post('/newslaravel/admin/news',[AdminNewsController::class,'store'])->name('admin.news.store');
+    Route::get('/newslaravel/admin/news/{news}/edit',[AdminNewsController::class,'edit'])->name('admin.news.edit');
+    Route::put('/newslaravel/admin/news/{news}',[AdminNewsController::class,'update'])->name('admin.news.update');
 
 
+});
 
-Route::get('/newslaravel/admin/news',[AdminNewsController::class,'index'])->name('admin.news.index');
-Route::get('/newslaravel/admin/news/create',[AdminNewsController::class,'create'])->name('admin.news.create');
-Route::post('/newslaravel/admin/news',[AdminNewsController::class,'store'])->name('admin.news.store');
-Route::get('/newslaravel/admin/news/{news}/edit',[AdminNewsController::class,'edit'])->name('admin.news.edit');
-Route::put('/newslaravel/admin/news/{news}',[AdminNewsController::class,'update'])->name('admin.news.update');
+
 
 
 
@@ -206,7 +216,7 @@ Route::put('/newslaravel/admin/news/{news}',[AdminNewsController::class,'update'
 
 //---------------------email-----------------------//
 
-Route::get('newslaravel/sendemail',[EmailController::class,'sendEmail'])->name('sendemail');
+Route::get('newslaravel/sendemail',[EmailControllerThree::class,'sendEmail'])->name('sendemail');
 
 
 
@@ -276,6 +286,9 @@ Route::get('/newslaravel/session/remove',function(){
 
 
 
+
+
+Route::view('/admintab','backup.aindex');
 
 
 

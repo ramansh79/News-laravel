@@ -1,5 +1,7 @@
 @extends('News.index')
 @section('aindex')
+                            {{ $categories= \App\Models\Category::all(); }}
+
     <section class="bg-light text-dark p-8">
         <div class="container">
             <div class="align-item-center">
@@ -48,6 +50,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        {{ $news= \App\Models\News::all(); }}
                                         @foreach($news as $items)
                                         <tr>
                                             <th scope="row">{{$items->unique_news_id}}</th>
@@ -146,6 +149,7 @@
                                         </thead>
                                         
                                         <tbody>
+                                            
                                             @foreach($categories as $category)
                                             
                                                 <tr>

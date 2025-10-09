@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $subject }}</title>
+    <title>hi</title>
 </head>
 <body>
-    <h3>{{ $subject }}</h3>
-    <p>{{ $mailmessage }}</p>
+    <!-- <h3>{{ $subject }}</h3>
+    <p>{{ $mailmessage }}</p> -->
+
+    hi
 </body>
 </html>

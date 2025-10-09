@@ -69,9 +69,9 @@ class Ucontroller extends Controller
 
 
     public function homeMain(){
-        
-        return view('Home.main');
-           
+
+        return view('home.main');
+
     }
    
     public function logout(){

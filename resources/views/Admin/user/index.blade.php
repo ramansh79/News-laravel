@@ -1,6 +1,7 @@
 @extends('Admin.main')
 @section('content')
 
+
     <!-- Top-level news tabs -->
     <div class="tab-pane fade show active" id="nav-news-index" role="tabpanel" aria-labelledby="nav-news-index-tab" tabindex="0">
             <!-- News index table -->

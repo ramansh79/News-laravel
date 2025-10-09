@@ -20,7 +20,7 @@
 /* side bar */
 
 .sidebar {
-    width: 220px;
+    width: 180px;
     min-height: calc(100vh - 73px);
     background: #f8f9fa;
     padding: 20px 10px;
@@ -62,7 +62,7 @@
 
 /* main content */
 .main-content {
-    margin-left: 220px; /* push content right of sidebar */
+    margin-left: 180px; /* push content right of sidebar */
     padding: 30px;
     padding-top: 90px; /* add space for header */
     flex: 1;

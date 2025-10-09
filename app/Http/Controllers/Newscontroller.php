@@ -85,6 +85,9 @@ class Newscontroller extends Controller
      */
     public function show(string $id, Request $request)
     {
+        /* $news->view_count = $news->view_count + 1;*/
+        
+        
         $news = News::findorfail($id);
         $comments = $news->comment;
         $news->increment('views_count');

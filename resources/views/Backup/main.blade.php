@@ -1,3 +1,6 @@
+<!-- this is backup of admin main page -->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -82,76 +85,59 @@
             <h6 class="mb-0">Hello! {{Auth::User()->user_name}}</h6> 
         </div>
 
-        <div class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="pills-news" role="tabpanel" aria-labelledby="pills-news-tab" tabindex="0">
-                <aside class="sidebar nav-tabs" id="nav-news-tab" role="tablist">
-                    <!-- list -->
-                    <ul class="sidebar-nav">
-                        <li class="sidebar-item">
-                            <a href="" class="sidebar-link active" id="nav-news-home-tab" data-bs-toggle="tab" data-bs-target="#nav-news-home" type="button" role="tab" aria-controls="nav-news-home" aria-selected="true">
-                                <i class="lni lni-home-2"></i>
-                                <span>Home</span>
-                            </a>
-                        </li>
-                        
-                        <li class="sidebar-item">
-                            <a href="{{ url('/newslaravel/admin/user') }}" class="sidebar-link">
-                                <i class="lni lni-user-4"></i>
-                                <span>User</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">
-                                <i class="lni lni-agenda"></i>
-                                <span>Task</span>
-                            </a>
-                        </li>    
-
-                        <!-- multilevel list -->
-                        <li class="sidebar-item">
-                            <a href="#" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse" data-bs-target="#multi" aria-expanded="true" aria-controls="multi">
-                                <i class="lni lni-layout-9"></i>
-                                <span>Data</span>
-                            </a>
-                            <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                                <li class="sidebar-item">
-                                    <a href="{{ url('/newslaravel/admin/news') }}" method="POST" class="sidebar-link collapsed" >News</a> 
-                                                                    
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{{ url('/newslaravel/admin/category') }}" class="sidebar-link collapsed">Category</a>
-                                </li>
-                            </ul>
-                        </li>
-
-
-                    </ul>
-                
-
-                    <!-- sidebar footer -->
-                    <div class="sidebar-footer">
-                        <a href="#" class="sidebar-link">
-                            <i class="lni lni-exit"></i>
-                            <span>Logout</span>
-                        </a>
-                    </div>
-
-                    <div class="tab-content" id="nav-news-tabContent">
-                        <div class="tab-pane fade show active" id="nav-news-home" role="tabpanel" aria-labelledby="nav-news-home-tab" tabindex="0">
-                            <!-- Home tab content -->
-                            <p>Welcome to the Home tab!</p>
-                        </div>
-                </aside>
-
-
-
-
-
-
-
         <!-- side bar -->
     
-        
+        <aside class="sidebar">
+            <!-- list -->
+            <ul class="sidebar-nav">
+                <li class="sidebar-item">
+                    <a href="" class="sidebar-link">
+                        <i class="lni lni-home-2"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                
+                <li class="sidebar-item">
+                    <a href="{{ url('/newslaravel/admin/user') }}" class="sidebar-link">
+                        <i class="lni lni-user-4"></i>
+                        <span>User</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link">
+                        <i class="lni lni-agenda"></i>
+                        <span>Task</span>
+                    </a>
+                </li>    
+
+                <!-- multilevel list -->
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse" data-bs-target="#multi" aria-expanded="true" aria-controls="multi">
+                        <i class="lni lni-layout-9"></i>
+                        <span>Data</span>
+                    </a>
+                    <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                        <li class="sidebar-item">
+                            <a href="{{ url('/newslaravel/admin/news') }}" method="POST" class="sidebar-link collapsed" >News</a> 
+                                                            
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{{ url('/newslaravel/admin/category') }}" class="sidebar-link collapsed">Category</a>
+                        </li>
+                    </ul>
+                </li>
+
+
+            </ul>
+
+            <!-- sidebar footer -->
+            <div class="sidebar-footer">
+                <a href="#" class="sidebar-link">
+                    <i class="lni lni-exit"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
         
 
         <!-- content on right -->
@@ -163,11 +149,9 @@
                 <div class="tab-pane fade show active " id="pills-news" role="tabpanel" aria-labelledby="pills-news-tab" tabindex="0">
               
                     <!-- News sub-tabs -->
-                   <nav>
+                    <nav>
                         <div class="nav nav-tabs" id="nav-news-tab" role="tablist">
-                            <!-- <button class="nav-link active" id="nav-news-index-tab" data-bs-toggle="tab" data-bs-target="#nav-news-index" type="button" role="tab" aria-controls="nav-news-index" aria-selected="true">Index</button>
-                            <button class="nav-link" id="nav-news-create-tab" data-bs-toggle="tab" data-bs-target="#nav-news-create" type="button" role="tab" aria-controls="nav-news-create" aria-selected="false">Create</button> 
-                            <button class="nav-link" id="nav-news-edit-tab" data-bs-toggle="tab" data-bs-target="#nav-news-edit" type="button" role="tab" aria-controls="nav-news-edit" aria-selected="false" disabled>Edit</button>-->
+                            
                             
                             <a href="{{ route('admin.news.index') }}" class="nav-link {{ request()->routeIs('admin.news.index') ? 'active' : '' }}">Index</a>
                             <a href="{{ route('admin.news.create') }}" class="nav-link {{ request()->routeIs('admin.news.create') ? 'active' : '' }}">Create</a>
